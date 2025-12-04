@@ -1,0 +1,3424 @@
+﻿<!DOCTYPE html>
+<link rel="icon" type="image/png" href="images\фавиконка.jpg"> 
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Парки Диснейленд - Персонажи Диснея</title>
+    <meta name="description" content="Все парки Диснейленд по всему миру: расположение, аттракционы, советы по посещению и волшебные впечатления.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-bg-elements">
+            <div class="bg-element bg-1"></div>
+            <div class="bg-element bg-2"></div>
+            <div class="bg-element bg-3"></div>
+        </div>
+
+        <div class="header-container">
+            <div class="header-left">
+                <a href="index.html" class="logo-link">
+                    <img src="C:\Users\Asus\Desktop\Новая папка\images\Disney_Logo.webp" alt="Disney Logo" class="logo-image">
+                </a>
+            </div>
+
+            <div class="header-center">
+                <h1 class="main-title-white">Персонажи Диснея</h1>
+            </div>
+
+            <div class="header-right">
+                <nav class="header-nav" id="main-nav">
+                    <div class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <span class="nav-text">Главная</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="gallery.html" class="nav-link">
+                            <span class="nav-text">Галерея</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="parks.html" class="nav-link">
+                            <span class="nav-text">Парки</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="quiz.html" class="nav-link">
+                            <span class="nav-text">Викторина</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="stories.html" class="nav-link">
+                            <span class="nav-text">Истории</span>
+                        </a>
+                    </div>
+                </nav>
+
+                
+                <div class="header-actions">
+                    <div class="header-search">
+                        <button class="search-toggle" onclick="toggleSearch()">
+                            🔍
+                        </button>
+                        <div class="search-box" id="search-box">
+                            <input type="text" class="search-input" placeholder="Поиск персонажей, фильмов...">
+                            <div class="search-suggestions" id="search-suggestions"></div>
+                        </div>
+                    </div>
+
+                    <div class="user-menu">
+                        <button class="user-btn" onclick="toggleUserDropdown()">
+                            <span class="user-name">Гость</span>
+                        </button>
+
+                        
+                        <div class="user-dropdown-box" id="user-dropdown-box">
+                            <div class="auth-container">
+                                <div class="auth-tabs">
+                                    <button class="auth-tab active" data-tab="login">Вход</button>
+                                    <button class="auth-tab" data-tab="register">Регистрация</button>
+                                </div>
+
+                                <form id="login-form" class="auth-form active" data-form="login">
+                                    <div class="form-group">
+                                        <input type="email" id="login-email" placeholder="Email" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="password-input">
+                                            <input type="password" id="login-password" placeholder="Пароль" required>
+                                            <button type="button" class="toggle-password" onclick="togglePassword('login-password')">👁️</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-options">
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="remember-me">
+                                            <span>Запомнить меня</span>
+                                        </label>
+                                        <a href="#forgot" class="forgot-password">Забыли пароль?</a>
+                                    </div>
+
+                                    <button type="submit" class="auth-btn">Войти</button>
+
+                                    
+                                </form>
+
+                                
+                                <form id="register-form" class="auth-form" data-form="register">
+                                    <div class="form-group">
+                                        <input type="text" id="register-name" placeholder="Имя" required minlength="2">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="email" id="register-email" placeholder="Email" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="password-input">
+                                            <input type="password" id="register-password" placeholder="Пароль" required minlength="6">
+                                            <button type="button" class="toggle-password" onclick="togglePassword('register-password')">👁️</button>
+                                        </div>
+                                        <div class="password-strength" id="password-strength">
+                                            <div class="strength-bar"></div>
+                                            <span class="strength-text">Введите пароль</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="password-input">
+                                            <input type="password" id="register-confirm" placeholder="Подтвердите пароль" required>
+                                            <button type="button" class="toggle-password" onclick="togglePassword('register-confirm')">👁️</button>
+                                        </div>
+                                        <div class="password-match" id="password-match"></div>
+                                    </div>
+
+                                    <div class="form-group terms-group">
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="accept-terms" required>
+                                            <span>Я согласен с <a href="#terms">условиями</a></span>
+                                        </label>
+                                    </div>
+
+                                    <button type="submit" class="auth-btn">Зарегистрироваться</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    
+    <div class="layout-1">
+        <header class="parks-header">
+            <h1>🎡 Волшебные парки Диснейленд</h1>
+            <p>Откройте для себя самые сказочные места на Земле, где мечты становятся реальностью</p>
+        </header>
+
+        
+        <div class="parks-stats">
+            <div class="park-stat">
+                <div class="stat-icon">🌎</div>
+                <div class="stat-info">
+                    <div class="stat-number" id="parks-total">6</div>
+                    <div class="stat-label">парков по всему миру</div>
+                </div>
+            </div>
+            <div class="park-stat">
+                <div class="stat-icon">🎪</div>
+                <div class="stat-info">
+                    <div class="stat-number" id="attractions-total">300+</div>
+                    <div class="stat-label">аттракционов</div>
+                </div>
+            </div>
+            <div class="park-stat">
+                <div class="stat-icon">👑</div>
+                <div class="stat-info">
+                    <div class="stat-number" id="visitors-total">150M+</div>
+                    <div class="stat-label">посетителей в год</div>
+                </div>
+            </div>
+        </div>
+
+        <section class="interactive-parks">
+            <h2>🎯 Выбери свой Disney Парк</h2>
+
+            <div class="park-selector">
+                <select id="park-select" onchange="changePark()">
+                    <option value="paris">🏰 Disneyland Paris</option>
+                    <option value="florida">🎪 Disney World Florida</option>
+                    <option value="california">🎠 Disneyland California</option>
+                    <option value="tokyo">🗼 Tokyo Disney Resort</option>
+                    <option value="shanghai">🐉 Shanghai Disney Resort</option>
+                    <option value="hongkong">🎡 Hong Kong Disneyland</option>
+                </select>
+            </div>
+
+            <div class="park-info">
+                <div id="park-map">
+                    <iframe id="park-iframe"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.216162381828!2d2.779259315674545!3d48.86737107928878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e61d19ca7ae2bd%3A0x57faf8cb6310e660!2sDisneyland%20Paris!5e0!3m2!1sru!2sru!4v1690000000000!5m2!1sru!2sru"
+                            width="100%"
+                            height="400"
+                            style="border:0; border-radius: 15px;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <div id="park-details">
+                    <h3 id="park-title">Disneyland Paris</h3>
+                    <p id="park-description">Волшебный парк развлечений в самом сердце Европы. Откройте для себя Замок Спящей красавицы и окунитесь в мир Disney! Единственный парк Дисней в Европе с уникальным французским шармом.</p>
+                    <div class="park-stats">
+                        <span>📅 Открыт: 1992</span>
+                        <span>🎢 Аттракционы: 50+</span>
+                        <span>⭐ Площадь: 2230 га</span>
+                        <span>🌍 Страна: Франция</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="parks-list">
+            <h2>🏰 Все парки Диснейленд</h2>
+            <div class="parks-filter">
+                <button class="filter-btn active" data-filter="all">Все парки</button>
+                <button class="filter-btn" data-filter="usa">США</button>
+                <button class="filter-btn" data-filter="europe">Европа</button>
+                <button class="filter-btn" data-filter="asia">Азия</button>
+            </div>
+
+            <div class="parks-grid" id="parks-grid">
+            </div>
+        </section>
+
+        
+        <section class="attractions-section">
+            <h2>🎢 Самые популярные аттракционы</h2>
+            <div class="attractions-slider">
+                <div class="attractions-track" id="attractions-track">
+                </div>
+                <button class="attraction-prev" onclick="prevAttraction()">‹</button>
+                <button class="attraction-next" onclick="nextAttraction()">›</button>
+            </div>
+            <div class="attractions-dots" id="attractions-dots"></div>
+        </section>
+
+        
+        <section class="tips-section">
+            <h2>💡 Советы для идеального посещения</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">⏰</div>
+                    <h3>Лучшее время</h3>
+                    <p>Приезжайте в будние дни утром, чтобы избежать очередей</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🎟️</div>
+                    <h3>Билеты онлайн</h3>
+                    <p>Покупайте билеты заранее онлайн для экономии времени и денег</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🗺️</div>
+                    <h3>Планируйте маршрут</h3>
+                    <p>Изучите карту парка и составьте план посещения аттракционов</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🍔</div>
+                    <h3>Питание</h3>
+                    <p>Бронируйте столики в ресторанах заранее, особенно в пиковые часы</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">📸</div>
+                    <h3>Встречи с персонажами</h3>
+                    <p>Узнайте расписание встреч с любимыми персонажами</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🎒</div>
+                    <h3>Что взять с собой</h3>
+                    <p>Удобная обувь, вода, зарядное устройство и хорошее настроение!</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="events-section">
+            <h2>🎉 Специальные мероприятия и сезоны</h2>
+            <div class="events-timeline">
+                <div class="event-period">
+                    <div class="event-date">Янв - Фев</div>
+                    <div class="event-content">
+                        <h3>❄️ Зимний фестиваль</h3>
+                        <p>Волшебные огни, ледовые шоу и новогодние парады</p>
+                    </div>
+                </div>
+                <div class="event-period">
+                    <div class="event-date">Март - Май</div>
+                    <div class="event-content">
+                        <h3>🌸 Весенний сезон</h3>
+                        <p>Цветочные фестивали и пасхальные празднования</p>
+                    </div>
+                </div>
+                <div class="event-period">
+                    <div class="event-date">Июнь - Авг</div>
+                    <div class="event-content">
+                        <h3>☀️ Летние приключения</h3>
+                        <p>Ночные шоу, фейерверки и летние лагеря</p>
+                    </div>
+                </div>
+                <div class="event-period">
+                    <div class="event-date">Сент - Окт</div>
+                    <div class="event-content">
+                        <h3>🎃 Хэллоуин сезон</h3>
+                        <p>Тематические вечеринки, костюмы и страшные аттракционы</p>
+                    </div>
+                </div>
+                <div class="event-period">
+                    <div class="event-date">Нояб - Дек</div>
+                    <div class="event-content">
+                        <h3>🎄 Рождественская сказка</h3>
+                        <p>Рождественские парады, снег и встреча с Сантой</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="planning-section">
+            <div class="planning-card">
+                <h2>📅 Запланируйте свое посещение</h2>
+                <form class="planning-form" id="planning-form">
+                    <div class="form-group">
+                        <label for="park-select">Выберите парк:</label>
+                        <select id="park-select" required>
+                            <option value="">-- Выберите парк --</option>
+                            <option value="disneyland-california">Disneyland California</option>
+                            <option value="disneyworld-florida">Walt Disney World Florida</option>
+                            <option value="disneyland-paris">Disneyland Paris</option>
+                            <option value="disneyland-tokyo">Tokyo Disneyland</option>
+                            <option value="disneyland-shanghai">Shanghai Disneyland</option>
+                            <option value="disneyland-hongkong">Hong Kong Disneyland</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="visit-date">Дата посещения:</label>
+                        <input type="date" id="visit-date" required min="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="visitors-count">Количество посетителей:</label>
+                        <input type="number" id="visitors-count" min="1" max="10" value="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Интересы:</label>
+                        <div class="interests-grid">
+                            <label class="interest-option">
+                                <input type="checkbox" name="interests" value="attractions"> Аттракционы
+                            </label>
+                            <label class="interest-option">
+                                <input type="checkbox" name="interests" value="characters"> Встречи с персонажами
+                            </label>
+                            <label class="interest-option">
+                                <input type="checkbox" name="interests" value="shows"> Шоу и парады
+                            </label>
+                            <label class="interest-option">
+                                <input type="checkbox" name="interests" value="dining"> Рестораны
+                            </label>
+                            <label class="interest-option">
+                                <input type="checkbox" name="interests" value="shopping"> Шоппинг
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="planning-btn">🎯 Создать план посещения</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    
+    <footer class="animated-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>🌍 Навигация</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="gallery.html">Галерея</a></li>
+                    <li><a href="parks.html">Парки</a></li>
+                    <li><a href="quiz.html">Викторина</a></li>
+                    <li><a href="stories.html">Истории</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>🏰 Парки Дисней</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="filterParks('usa')">Парки в США</a></li>
+                    <li><a href="#" onclick="filterParks('europe')">Парки в Европе</a></li>
+                    <li><a href="#" onclick="filterParks('asia')">Парки в Азии</a></li>
+                    <li><a href="#attractions">Популярные аттракционы</a></li>
+                    <li><a href="#tips">Советы по посещению</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>📞 Контакты</h3>
+                <ul class="footer-links">
+                    <li>🏢 Москва, ул. Волшебная, 1</li>
+                    <li>📞 +7 (495) 123-45-67</li>
+                    <li>✉️ info@disney-parks.ru</li>
+                </ul>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">© 2024 Парки Диснейленд. Фан-сайт, не affiliated с The Walt Disney Company.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+        function toggleSearch() {
+            const searchBox = document.getElementById('search-box');
+
+            searchBox.classList.toggle('active');
+
+            if (searchBox.classList.contains('active')) {
+                setTimeout(() => {
+                    const input = document.querySelector('.search-input');
+                    if (input) {
+                        input.focus();
+                        input.click();
+                    }
+                }, 300);
+            }
+        }
+
+        function closeAllDropdowns() {
+            const searchBox = document.getElementById('search-box');
+            searchBox.classList.remove('active');
+
+            if (window.innerWidth <= 768) {
+                const headerRight = document.querySelector('.header-right');
+                headerRight.classList.remove('active');
+            }
+        }
+
+        function toggleMobileMenu() {
+            const headerRight = document.querySelector('.header-right');
+            const isActive = headerRight.classList.contains('active');
+
+            closeAllDropdowns();
+
+            if (!isActive) {
+                headerRight.classList.add('active');
+            }
+        }
+
+        document.addEventListener('click', function (event) {
+            const searchBox = document.getElementById('search-box');
+            const searchToggle = document.querySelector('.search-toggle');
+            const headerRight = document.querySelector('.header-right');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+
+            console.log('Document click event');
+
+            if (searchBox.classList.contains('active') &&
+                !searchBox.contains(event.target) &&
+                !searchToggle.contains(event.target)) {
+                console.log('Closing search box - clicked outside');
+                searchBox.classList.remove('active');
+            }
+
+            if (window.innerWidth <= 768) {
+                if (headerRight.classList.contains('active') &&
+                    !headerRight.contains(event.target) &&
+                    !mobileToggle.contains(event.target)) {
+                    headerRight.classList.remove('active');
+                }
+            }
+        });
+
+        function setupHeaderSearch() {
+            const searchInput = document.querySelector('.search-input');
+            const suggestions = document.getElementById('search-suggestions');
+
+            if (!searchInput) {
+                console.error('Search input not found!');
+                return;
+            }
+
+            searchInput.addEventListener('input', debounce(function (e) {
+                const value = e.target.value.trim();
+                suggestions.innerHTML = '';
+
+                if (value.length > 1) {
+                    showSearchSuggestions(value);
+                } else if (value.length === 0) {
+                    suggestions.innerHTML = '<div class="no-results">Введите имя персонажа или фильма</div>';
+                }
+            }, 300));
+
+            searchInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    performSearch(this.value);
+                }
+            });
+
+            searchInput.addEventListener('focus', function () {
+                if (this.value.trim() === '') {
+                    suggestions.innerHTML = '<div class="no-results">Введите имя персонажа или фильма</div>';
+                }
+            });
+        }
+
+        function showSearchSuggestions(query) {
+            const suggestions = [
+                { name: "Микки Маус", type: "character", url: "gallery.html#mickey", icon: "🐭" },
+                { name: "Эльза", type: "character", url: "gallery.html#elsa", icon: "❄️" },
+                { name: "Симба", type: "character", url: "gallery.html#simba", icon: "🦁" },
+                { name: "Бель", type: "character", url: "gallery.html#belle", icon: "👑" },
+                { name: "Холодное сердце", type: "movie", url: "gallery.html?movie=frozen", icon: "🎬" },
+                { name: "Король Лев", type: "movie", url: "gallery.html?movie=lionking", icon: "🎬" }
+            ];
+
+            const matches = suggestions.filter(item =>
+                item.name.toLowerCase().includes(query.toLowerCase())
+            );
+
+            const suggestionsContainer = document.getElementById('search-suggestions');
+
+            if (matches.length > 0) {
+                suggestionsContainer.innerHTML = matches.map(item => `
+    <div class="search-suggestion" onclick="selectSuggestion('${item.name}', '${item.url}')">
+        <span class="suggestion-icon">${item.icon}</span>
+        <span class="suggestion-text">${item.name}</span>
+        <span class="suggestion-type">${item.type === 'character' ? 'Персонаж' : 'Фильм'}</span>
+    </div>
+`).join('');
+            } else {
+                suggestionsContainer.innerHTML = '<div class="no-results">Ничего не найдено. Попробуйте другой запрос.</div>';
+            }
+        }
+
+        function selectSuggestion(term, url) {
+            document.querySelector('.search-input').value = term;
+            document.getElementById('search-box').classList.remove('active');
+
+            setTimeout(() => {
+                if (url.includes('#')) {
+                    window.location.href = url;
+                } else {
+                    window.location.href = `${url}&search=${encodeURIComponent(term)}`;
+                }
+            }, 300);
+        }
+
+        function performSearch(term) {
+            if (term.trim()) {
+                document.getElementById('search-box').classList.remove('active');
+                window.location.href = `gallery.html?search=${encodeURIComponent(term)}`;
+            }
+        }
+
+        
+        function setActiveNavLink() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeAllDropdowns();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.search-toggle').onclick = toggleSearch;
+
+            document.addEventListener('click', function (e) {
+                const searchBox = document.getElementById('search-box');
+                const toggle = document.querySelector('.search-toggle');
+
+                if (searchBox.classList.contains('active') &&
+                    !searchBox.contains(e.target) &&
+                    !toggle.contains(e.target)) {
+                    searchBox.classList.remove('active');
+                }
+            });
+        });
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        const parksData = [
+            {
+                id: 1,
+                name: "Disneyland California",
+                location: "Анахайм, Калифорния, США",
+                opened: 1955,
+                size: "34 гектара",
+                icon: "🏰",
+                region: "usa",
+                description: "Первый и самый классический парк Диснейленд, созданный самим Уолтом Диснеем",
+                attractions: ["Замок Спящей красавицы", "Пираты Карибского моря", "Космическая гора"],
+                highlights: ["Исторический парк", "Оригинальные аттракционы", "Калифорнийская атмосфера"],
+                bestTime: "Сентябрь-Ноябрь",
+                ticketPrice: "$104-$154"
+            },
+            {
+                id: 2,
+                name: "Walt Disney World Florida",
+                location: "Орландо, Флорида, США",
+                opened: 1971,
+                size: "101 км²",
+                icon: "🌴",
+                region: "usa",
+                description: "Самый большой парк развлечений в мире, состоящий из 4 тематических парков",
+                attractions: ["Экспедиция Эверст", "Космический корабль Земля", "Сафари в Африке"],
+                highlights: ["Самый большой парк", "4 тематических парка", "Водные парки"],
+                bestTime: "Январь-Февраль",
+                ticketPrice: "$109-$159"
+            },
+            {
+                id: 3,
+                name: "Disneyland Paris",
+                location: "Париж, Франция",
+                opened: 1992,
+                size: "2230 гектаров",
+                icon: "🗼",
+                region: "europe",
+                description: "Единственный парк Диснейленд в Европе с европейским шармом",
+                attractions: ["Башня Ужаса", "Космическая гора: Миссия 2", "Призрачное поместье"],
+                highlights: ["Европейская архитектура", "Уникальные аттракционы", "Близко к центру Парижа"],
+                bestTime: "Апрель-Июнь",
+                ticketPrice: "€62-€99"
+            },
+            {
+                id: 4,
+                name: "Tokyo Disneyland",
+                location: "Токио, Япония",
+                opened: 1983,
+                size: "47 гектаров",
+                icon: "🎎",
+                region: "asia",
+                description: "Первый парк Диснейленд за пределами США, сочетающий японскую культуру и диснеевскую магию",
+                attractions: ["Морское путешествие", "Призрачное поместье", "Гора Электричества"],
+                highlights: ["Безупречная чистота", "Японский сервис", "Уникальные сувениры"],
+                bestTime: "Октябрь-Ноябрь",
+                ticketPrice: "¥7,900-¥9,400"
+            },
+            {
+                id: 5,
+                name: "Shanghai Disneyland",
+                location: "Шанхай, Китай",
+                opened: 2016,
+                size: "390 гектаров",
+                icon: "🐉",
+                region: "asia",
+                description: "Самый новый парк Диснейленд с уникальными аттракционами, созданными специально для Китая",
+                attractions: ["Пираты Карибского моря", "TRON Lightcycle Power Run", "Зачарованный сказочный зал"],
+                highlights: ["Современные технологии", "Китайские элементы", "Крупнейший замок"],
+                bestTime: "Март-Май",
+                ticketPrice: "¥399-¥599"
+            },
+            {
+                id: 6,
+                name: "Hong Kong Disneyland",
+                location: "Гонконг, Китай",
+                opened: 2005,
+                size: "27 гектаров",
+                icon: "🌃",
+                region: "asia",
+                description: "Компактный и уютный парк с потрясающим видом на горы и море",
+                attractions: ["Железная дорога Диснейленда", "Фестиваль Льва", "Мистическое поместье"],
+                highlights: ["Компактный размер", "Гонконгская кухня", "Ночные шоу"],
+                bestTime: "Октябрь-Декабрь",
+                ticketPrice: "HK$639-HK$799"
+            }
+        ];
+
+        const attractionsData = [
+            {
+                name: "Пираты Карибского моря",
+                park: "Disneyland California",
+                icon: "🏴‍☠️",
+                description: "Классическое водное приключение с пиратами и сокровищами",
+                waitTime: "45 мин",
+                height: "Любой рост"
+            },
+            {
+                name: "Космическая гора",
+                park: "Все парки",
+                icon: "🚀",
+                description: "Захватывающая космическая американка в полной темноте",
+                waitTime: "60 мин",
+                height: "112 см+"
+            },
+            {
+                name: "Призрачное поместье",
+                park: "Disneyland Paris",
+                icon: "👻",
+                description: "Путешествие через дом с 999 приведениями",
+                waitTime: "30 мин",
+                height: "Любой рост"
+            },
+            {
+                name: "TRON Lightcycle",
+                park: "Shanghai Disneyland",
+                icon: "🏍️",
+                description: "Высокоскоростной мотоцикл будущего из фильма TRON",
+                waitTime: "75 мин",
+                height: "122 см+"
+            },
+            {
+                name: "Экспедиция Эверст",
+                park: "Walt Disney World",
+                icon: "🏔️",
+                description: "Опасное путешествие через Гималаи с йети",
+                waitTime: "50 мин",
+                height: "112 см+"
+            }
+        ];
+
+        let currentAttraction = 0;
+        let filteredParks = [...parksData];
+
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeParksPage();
+            setupMapInteractions();
+            setupEventListeners(); 
+            setActiveNavLink();
+        });
+
+        function initializeParksPage() {
+            renderParks();
+            initializeAttractionsSlider();
+            setupMapInteractions();
+        }
+
+        function renderParks() {
+            const grid = document.getElementById('parks-grid');
+            grid.innerHTML = filteredParks.map(park => `
+                <div class="park-card" data-region="${park.region}">
+                    <div class="park-header">
+                        <div class="park-icon">${park.icon}</div>
+                        <div class="park-badge">${park.region === 'usa' ? '🇺🇸' : park.region === 'europe' ? '🇪🇺' : '🇨🇳'}</div>
+                    </div>
+                    <div class="park-content">
+                        <h3>${park.name}</h3>
+                        <p class="park-location">📍 ${park.location}</p>
+                        <p class="park-description">${park.description}</p>
+
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Открыт:</span>
+                                <span class="detail-value">${park.opened} год</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Площадь:</span>
+                                <span class="detail-value">${park.size}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Билеты:</span>
+                                <span class="detail-value">${park.ticketPrice}</span>
+                            </div>
+                        </div>
+
+                        <div class="park-attractions">
+                            <strong>Популярные аттракционы:</strong>
+                            <ul>
+                                ${park.attractions.map(attr => `<li>🎢 ${attr}</li>`).join('')}
+                            </ul>
+                        </div>
+
+                        <div class="park-highlights">
+                            ${park.highlights.map(highlight => `<span class="highlight-tag">⭐ ${highlight}</span>`).join('')}
+                        </div>
+
+                        <div class="park-actions">
+                            <button class="park-info-btn" onclick="showParkInfo(${park.id})">ℹ️ Подробнее</button>
+                            <button class="park-plan-btn" onclick="planParkVisit(${park.id})">📅 Запланировать</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setupEventListeners() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.dataset.filter;
+                    if (filter === 'all') {
+                        filteredParks = [...parksData];
+                    } else {
+                        filteredParks = parksData.filter(park => park.region === filter);
+                    }
+                    renderParks();
+                });
+            });
+
+            
+            const planningForm = document.getElementById('planning-form');
+            planningForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                createVisitPlan();
+            });
+        }
+
+        
+        function initializeAttractionsSlider() {
+            const track = document.getElementById('attractions-track');
+            const dots = document.getElementById('attractions-dots');
+
+            attractionsData.forEach((attraction, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'attraction-slide';
+                slide.innerHTML = `
+                    <div class="attraction-card">
+                        <div class="attraction-icon">${attraction.icon}</div>
+                        <h3>${attraction.name}</h3>
+                        <p class="attraction-park">🏰 ${attraction.park}</p>
+                        <p class="attraction-desc">${attraction.description}</p>
+                        <div class="attraction-info">
+                            <span class="wait-time">⏱️ ${attraction.waitTime}</span>
+                            <span class="height-limit">📏 ${attraction.height}</span>
+                        </div>
+                    </div>
+                `;
+                track.appendChild(slide);
+
+                const dot = document.createElement('span');
+                dot.className = 'attraction-dot' + (index === 0 ? ' active' : '');
+                dot.onclick = () => goToAttraction(index);
+                dots.appendChild(dot);
+            });
+        }
+
+        function nextAttraction() {
+            goToAttraction(currentAttraction + 1);
+        }
+
+        function prevAttraction() {
+            goToAttraction(currentAttraction - 1);
+        }
+
+        function goToAttraction(n) {
+            const slides = document.querySelectorAll('.attraction-slide');
+            const dots = document.querySelectorAll('.attraction-dot');
+
+            currentAttraction = (n + slides.length) % slides.length;
+
+            const track = document.getElementById('attractions-track');
+            track.style.transform = `translateX(-${currentAttraction * 100}%)`;
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentAttraction);
+            });
+        }
+
+        function setupMapInteractions() {
+            const mapPoints = document.querySelectorAll('.map-point');
+            mapPoints.forEach(point => {
+                point.addEventListener('click', function() {
+                    const parkId = this.dataset.park;
+                    highlightParkOnMap(parkId);
+                });
+            });
+        }
+
+        function highlightParkOnMap(parkId) {
+            alert(`Вы выбрали парк: ${parkId}`);
+        }
+
+        function setMinDate() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('visit-date').min = today;
+        }
+
+        function createVisitPlan() {
+            const parkSelect = document.getElementById('park-select');
+            const visitDate = document.getElementById('visit-date');
+            const visitorsCount = document.getElementById('visitors-count');
+            const interests = document.querySelectorAll('input[name="interests"]:checked');
+
+            const selectedInterests = Array.from(interests).map(interest => interest.value);
+
+            if (parkSelect.value && visitDate.value) {
+                const plan = {
+                    park: parkSelect.options[parkSelect.selectedIndex].text,
+                    date: visitDate.value,
+                    visitors: visitorsCount.value,
+                    interests: selectedInterests
+                };
+
+                showVisitPlan(plan);
+            }
+        }
+
+        function showVisitPlan(plan) {
+            const planSummary = `
+                🎉 Ваш план посещения готов!
+
+                🏰 Парк: ${plan.park}
+                📅 Дата: ${plan.date}
+                👥 Посетителей: ${plan.visitors}
+                🎯 Интересы: ${plan.interests.join(', ') || 'не указаны'}
+
+                💡 Совет: Приезжайте за 30 минут до открытия парка!
+            `;
+
+            alert(planSummary);
+        }
+
+        function showParkInfo(parkId) {
+            const park = parksData.find(p => p.id === parkId);
+            const info = `
+                🏰 ${park.name}
+                📍 ${park.location}
+
+                📅 Открыт: ${park.opened} год
+                📏 Площадь: ${park.size}
+                💰 Билеты: ${park.ticketPrice}
+
+                🎢 Аттракционы:
+                ${park.attractions.map(attr => `• ${attr}`).join('\n')}
+
+                ⭐ Особенности:
+                ${park.highlights.map(h => `• ${h}`).join('\n')}
+
+                📅 Лучшее время: ${park.bestTime}
+            `;
+            alert(info);
+        }
+
+        function planParkVisit(parkId) {
+            const park = parksData.find(p => p.id === parkId);
+            document.getElementById('park-select').value = `disneyland-${park.location.split(',')[0].toLowerCase()}`;
+            document.querySelector('.planning-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function filterParks(region) {
+            const filterBtn = document.querySelector(`.filter-btn[data-filter="${region}"]`);
+            if (filterBtn) {
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                filterBtn.classList.add('active');
+                filteredParks = region === 'all' ? [...parksData] : parksData.filter(park => park.region === region);
+                renderParks();
+            }
+        }
+
+        
+        setInterval(nextAttraction, 5000);
+        
+        function toggleUserDropdown() {
+            const userBox = document.getElementById('user-dropdown-box');
+            const isActive = userBox.classList.contains('active');
+
+            closeAllDropdowns();
+
+            if (!isActive) {
+                userBox.classList.add('active');
+                switchAuthTab('login');
+                setTimeout(() => {
+                    document.getElementById('login-email')?.focus();
+                }, 100);
+            }
+        }
+
+        function closeUserDropdown() {
+            const userBox = document.getElementById('user-dropdown-box');
+            userBox.classList.remove('active');
+        }
+
+        
+        function closeAllDropdowns() {
+            const searchBox = document.getElementById('search-box');
+            const userBox = document.getElementById('user-dropdown-box');
+
+            searchBox.classList.remove('active');
+            userBox.classList.remove('active');
+
+            if (window.innerWidth <= 768) {
+                const headerRight = document.querySelector('.header-right');
+                headerRight.classList.remove('active');
+            }
+        }
+
+        
+        document.addEventListener('click', function (event) {
+            const searchBox = document.getElementById('search-box');
+            const searchToggle = document.querySelector('.search-toggle');
+            const userBox = document.getElementById('user-dropdown-box');
+            const userBtn = document.querySelector('.user-btn');
+            const headerRight = document.querySelector('.header-right');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+
+            
+            if (searchBox.classList.contains('active') &&
+                !searchBox.contains(event.target) &&
+                !searchToggle.contains(event.target)) {
+                searchBox.classList.remove('active');
+            }
+
+            
+            if (userBox.classList.contains('active') &&
+                !userBox.contains(event.target) &&
+                !userBtn.contains(event.target)) {
+                userBox.classList.remove('active');
+            }
+
+           
+            if (window.innerWidth <= 768) {
+                if (headerRight.classList.contains('active') &&
+                    !headerRight.contains(event.target) &&
+                    !mobileToggle.contains(event.target)) {
+                    headerRight.classList.remove('active');
+                }
+            }
+        });
+
+        
+        function switchAuthTab(tabName) {
+            document.querySelectorAll('.auth-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.tab === tabName);
+            });
+
+            document.querySelectorAll('.auth-form').forEach(form => {
+                form.classList.toggle('active', form.dataset.form === tabName);
+            });
+
+            clearFormErrors();
+        }
+
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const toggleBtn = input.nextElementSibling;
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                input.type = 'password';
+                toggleBtn.textContent = '👁️';
+            }
+        }
+
+        function checkPasswordStrength(password) {
+            let strength = 0;
+            const bar = document.querySelector('.strength-bar');
+            const text = document.querySelector('.strength-text');
+
+            if (!password) {
+                bar.style.width = '0';
+                text.textContent = 'Введите пароль';
+                text.style.color = '#666';
+                return;
+            }
+
+            if (password.length >= 8) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+            let strengthText, barColor, barWidth;
+            switch (strength) {
+                case 0:
+                case 1:
+                    strengthText = 'Слабый пароль';
+                    barColor = '#ff6b6b';
+                    barWidth = '25%';
+                    break;
+                case 2:
+                    strengthText = 'Средний пароль';
+                    barColor = '#ffc107';
+                    barWidth = '50%';
+                    break;
+                case 3:
+                    strengthText = 'Хороший пароль';
+                    barColor = '#4ecdc4';
+                    barWidth = '75%';
+                    break;
+                case 4:
+                    strengthText = 'Надёжный пароль';
+                    barColor = '#28a745';
+                    barWidth = '100%';
+                    break;
+            }
+
+            bar.style.width = barWidth;
+            bar.style.backgroundColor = barColor;
+            text.textContent = strengthText;
+            text.style.color = barColor;
+        }
+
+        function checkPasswordMatch() {
+            const password = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
+            const matchDiv = document.getElementById('password-match');
+
+            if (!confirm) {
+                matchDiv.textContent = '';
+                return;
+            }
+
+            if (password === confirm) {
+                matchDiv.textContent = '✅ Пароли совпадают';
+                matchDiv.style.color = '#28a745';
+            } else {
+                matchDiv.textContent = '❌ Пароли не совпадают';
+                matchDiv.style.color = '#ff6b6b';
+            }
+        }
+
+        function clearFormErrors() {
+            document.querySelectorAll('.error-message').forEach(error => error.remove());
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('error');
+            });
+        }
+
+        function showError(inputId, message) {
+            const input = document.getElementById(inputId);
+            const group = input.closest('.form-group');
+
+            const oldError = group.querySelector('.error-message');
+            if (oldError) oldError.remove();
+
+            const error = document.createElement('div');
+            error.className = 'error-message';
+            error.textContent = message;
+            group.appendChild(error);
+            group.classList.add('error');
+        }
+
+        function loginUser(email, password) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const users = JSON.parse(localStorage.getItem('disneyUsers') || '[]');
+                    const user = users.find(u => u.email === email && u.password === password);
+
+                    if (user) {
+                        const sessionData = {
+                            id: user.id,
+                            name: user.name,
+                            email: user.email,
+                            isLoggedIn: true,
+                            loginTime: new Date().toISOString()
+                        };
+
+                        localStorage.setItem('disneyUser', JSON.stringify(sessionData));
+                        resolve(sessionData);
+                    } else {
+                        reject('Неверный email или пароль');
+                    }
+                }, 1000);
+            });
+        }
+
+        
+        function registerUser(userData) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const users = JSON.parse(localStorage.getItem('disneyUsers') || '[]');
+
+                    const existingUser = users.find(u => u.email === userData.email);
+                    if (existingUser) {
+                        reject('Пользователь с таким email уже существует');
+                        return;
+                    }
+
+                    const newUser = {
+                        id: Date.now().toString(),
+                        name: userData.name,
+                        email: userData.email,
+                        password: userData.password,
+                        registrationDate: new Date().toISOString(),
+                        favorites: [],
+                        stories: []
+                    };
+
+                    users.push(newUser);
+                    localStorage.setItem('disneyUsers', JSON.stringify(users));
+
+                    const sessionData = {
+                        id: newUser.id,
+                        name: newUser.name,
+                        email: newUser.email,
+                        isLoggedIn: true,
+                        loginTime: new Date().toISOString()
+                    };
+
+                    localStorage.setItem('disneyUser', JSON.stringify(sessionData));
+                    resolve(sessionData);
+                }, 1500);
+            });
+        }
+
+        function updateUserInterface(userName) {
+            const userBtn = document.querySelector('.user-btn');
+            const userNameSpan = document.querySelector('.user-name');
+
+            userBtn.classList.add('logged-in');
+            userNameSpan.textContent = userName;
+
+            userBtn.onclick = function (e) {
+                e.stopPropagation();
+                showUserMenu();
+            };
+
+            let dropdown = document.querySelector('.user-menu-dropdown');
+            if (!dropdown) {
+                dropdown = document.createElement('div');
+                dropdown.className = 'user-menu-dropdown';
+                dropdown.innerHTML = `
+            <div class="dropdown-content">
+                <a href="#profile" class="dropdown-item">👤 Мой профиль</a>
+                <a href="#favorites" class="dropdown-item">⭐ Избранное</a>
+                <a href="#stories" class="dropdown-item">📖 Мои истории</a>
+                <a href="#settings" class="dropdown-item">⚙️ Настройки</a>
+                <div class="dropdown-divider"></div>
+                <a href="#logout" class="dropdown-item logout" onclick="logoutUser()">🚪 Выйти</a>
+            </div>
+        `;
+                document.querySelector('.user-menu').appendChild(dropdown);
+            }
+
+            closeUserDropdown();
+        }
+
+        function showUserMenu() {
+            const dropdown = document.querySelector('.user-menu-dropdown');
+            if (dropdown) {
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+
+        function logoutUser() {
+            localStorage.removeItem('disneyUser');
+
+            const userBtn = document.querySelector('.user-btn');
+            const userNameSpan = document.querySelector('.user-name');
+
+            userBtn.classList.remove('logged-in');
+            userNameSpan.textContent = 'Гость';
+
+            userBtn.onclick = toggleUserDropdown;
+
+            const dropdown = document.querySelector('.user-menu-dropdown');
+            if (dropdown) dropdown.remove();
+
+            showNotification('Вы успешно вышли из аккаунта 👋', 'info');
+        }
+
+        function socialAuth(provider) {
+            showNotification(`Авторизация через ${provider === 'google' ? 'Google' : 'ВКонтакте'}...`, 'info');
+
+            setTimeout(() => {
+                const userData = {
+                    id: Date.now().toString(),
+                    name: provider === 'google' ? 'Google Пользователь' : 'Пользователь ВК',
+                    email: `user@${provider}.com`,
+                    isLoggedIn: true,
+                    socialProvider: provider,
+                    loginTime: new Date().toISOString()
+                };
+
+                localStorage.setItem('disneyUser', JSON.stringify(userData));
+                updateUserInterface(userData.name);
+                closeUserDropdown();
+
+                showNotification(`Вход через ${provider === 'google' ? 'Google' : 'ВКонтакте'} успешен! 🎉`, 'success');
+            }, 2000);
+        }
+
+        function showNotification(message, type = 'info') {
+            const oldNotification = document.querySelector('.notification');
+            if (oldNotification) oldNotification.remove();
+
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-icon">${type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️'}</span>
+            <span class="notification-text">${message}</span>
+            <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+        </div>
+    `;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => notification.classList.add('show'), 10);
+
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.classList.remove('show');
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 5000);
+        }
+
+        function checkAuthStatus() {
+            const userData = localStorage.getItem('disneyUser');
+            if (userData) {
+                try {
+                    const user = JSON.parse(userData);
+                    if (user.isLoggedIn) {
+                        updateUserInterface(user.name);
+                    }
+                } catch (e) {
+                    console.error('Ошибка при чтении данных пользователя:', e);
+                }
+            }
+        }
+
+        function initAuthForms() {
+            document.querySelectorAll('.auth-tab').forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    switchAuthTab(tab.dataset.tab);
+                });
+            });
+
+            const passwordInput = document.getElementById('register-password');
+            if (passwordInput) {
+                passwordInput.addEventListener('input', function () {
+                    checkPasswordStrength(this.value);
+                    checkPasswordMatch();
+                });
+            }
+
+            const confirmInput = document.getElementById('register-confirm');
+            if (confirmInput) {
+                confirmInput.addEventListener('input', checkPasswordMatch);
+            }
+
+            const loginForm = document.getElementById('login-form');
+            if (loginForm) {
+                loginForm.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    const email = document.getElementById('login-email').value.trim();
+                    const password = document.getElementById('login-password').value;
+                    const rememberMe = document.getElementById('remember-me').checked;
+
+                    clearFormErrors();
+                    let hasErrors = false;
+
+                    if (!email) {
+                        showError('login-email', 'Введите email');
+                        hasErrors = true;
+                    } else if (!/\S+@\S+\.\S+/.test(email)) {
+                        showError('login-email', 'Введите корректный email');
+                        hasErrors = true;
+                    }
+
+                    if (!password) {
+                        showError('login-password', 'Введите пароль');
+                        hasErrors = true;
+                    }
+
+                    if (hasErrors) return;
+
+                    const submitBtn = this.querySelector('.auth-btn');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Вход...';
+                    submitBtn.disabled = true;
+
+                    try {
+                        const userData = await loginUser(email, password);
+
+                        updateUserInterface(userData.name);
+
+                        showNotification(`Добро пожаловать, ${userData.name}! ✨`, 'success');
+
+                        if (rememberMe) {
+                            localStorage.setItem('rememberMe', 'true');
+                        }
+
+                    } catch (error) {
+                        showNotification(error, 'error');
+                        showError('login-email', ' ');
+                        showError('login-password', 'Неверный email или пароль');
+                    } finally {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+
+            const registerForm = document.getElementById('register-form');
+            if (registerForm) {
+                registerForm.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    const name = document.getElementById('register-name').value.trim();
+                    const email = document.getElementById('register-email').value.trim();
+                    const password = document.getElementById('register-password').value;
+                    const confirm = document.getElementById('register-confirm').value;
+                    const acceptTerms = document.getElementById('accept-terms').checked;
+
+                    clearFormErrors();
+                    let hasErrors = false;
+
+                    if (!name || name.length < 2) {
+                        showError('register-name', 'Имя должно содержать минимум 2 символа');
+                        hasErrors = true;
+                    }
+
+                    if (!email) {
+                        showError('register-email', 'Введите email');
+                        hasErrors = true;
+                    } else if (!/\S+@\S+\.\S+/.test(email)) {
+                        showError('register-email', 'Введите корректный email');
+                        hasErrors = true;
+                    }
+
+                    if (!password || password.length < 6) {
+                        showError('register-password', 'Пароль должен содержать минимум 6 символов');
+                        hasErrors = true;
+                    }
+
+                    if (password !== confirm) {
+                        showError('register-confirm', 'Пароли не совпадают');
+                        hasErrors = true;
+                    }
+
+                    if (!acceptTerms) {
+                        showNotification('Необходимо принять условия использования', 'error');
+                        hasErrors = true;
+                    }
+
+                    if (hasErrors) return;
+
+                    const submitBtn = this.querySelector('.auth-btn');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Регистрация...';
+                    submitBtn.disabled = true;
+
+                    try {
+                        const userData = {
+                            name: name,
+                            email: email,
+                            password: password
+                        };
+
+                        const sessionData = await registerUser(userData);
+
+                        updateUserInterface(sessionData.name);
+
+                        showNotification(`Регистрация успешна! Добро пожаловать, ${sessionData.name}! 🎉`, 'success');
+
+                    } catch (error) {
+                        showNotification(error, 'error');
+                        if (error.includes('уже существует')) {
+                            showError('register-email', 'Этот email уже зарегистрирован');
+                        }
+                    } finally {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    closeAllDropdowns();
+                }
+            });
+        }
+
+        const userMenuStyles = `
+.user-menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 10px;
+    min-width: 200px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 10002;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-content {
+    padding: 10px 0;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+}
+
+.dropdown-item:hover {
+    background: #f8f9fa;
+    color: #667eea;
+}
+
+.dropdown-item.logout {
+    color: #ff6b6b;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: #eee;
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .user-menu-dropdown {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        left: 20px;
+        margin-top: 0;
+    }
+}
+`;
+
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = userMenuStyles;
+        document.head.appendChild(styleSheet);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            initAuthForms();
+            checkAuthStatus();
+            setActiveNavLink();
+
+            document.addEventListener('click', function (e) {
+                const userMenu = document.querySelector('.user-menu-dropdown');
+                const userBtn = document.querySelector('.user-btn');
+
+                if (userMenu && userMenu.style.display === 'block' &&
+                    !userMenu.contains(e.target) &&
+                    !userBtn.contains(e.target)) {
+                    userMenu.style.display = 'none';
+                }
+            });
+        });
+        const parks = {
+            paris: {
+                map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.216162381828!2d2.779259315674545!3d48.86737107928878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e61d19ca7ae2bd%3A0x57faf8cb6310e660!2sDisneyland%20Paris!5e0!3m2!1sru!2sru!4v1690000000000!5m2!1sru!2sru",
+                title: "Disneyland Paris",
+                description: "Волшебный парк развлечений в самом сердце Европы. Откройте для себя Замок Спящей красавицы и окунитесь в мир Disney! Единственный парк Дисней в Европе с уникальным французским шармом.",
+                stats: ["📅 Открыт: 1992", "🎢 Аттракционы: 50+", "⭐ Площадь: 2230 га", "🌍 Страна: Франция"]
+            },
+            florida: {
+                map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.5587857142857!2d-81.56326848461538!3d28.377235882563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88dd7ee634caa5f7%3A0xa71e391fd01cf1a0!2sWalt%20Disney%20World%20Resort!5e0!3m2!1sru!2sru!4v1690000000000!5m2!1sru!2sru",
+                title: "Walt Disney World, Florida",
+                description: "Самый большой Disney парк в мире! Включает 4 тематических парка (Magic Kingdom, Epcot, Hollywood Studios, Animal Kingdom) и 2 аквапарка. Настоящий город мечты.",
+                stats: ["📅 Открыт: 1971", "🎢 Аттракционы: 100+", "⭐ Площадь: 11000 га", "🌍 Штат: Флорида, США"]
+            },
+            california: {
+                map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.135965420458!2d-117.918676484838!3d33.812091780678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcd7d12b3b5e6b%3A0x2ef62f8418225cfa!2sDisneyland%20Park!5e0!3m2!1sru!2sru!4v1690000000000!5m2!1sru!2sru",
+                title: "Disneyland California",
+                description: "Первый и самый легендарный парк Disney, открытый самим Уолтом Диснеем в 1955 году. Истоки магии, где все начиналось. Исторический парк с классической атмосферой.",
+                stats: ["📅 Открыт: 1955", "🎢 Аттракционы: 60+", "⭐ Площадь: 34 га", "🌍 Штат: Калифорния, США"]
+            },
+            tokyo: {
+                map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.828653950577!2d139.88041531525844!3d35.63289898019443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c5e412329bb%3A0x7db38e0aaf11e4c4!2sTokyo%20Disneyland!5e0!3m2!1sru!2sru!4v1690000000000!5m2!1sru!2sru",
+                title: "Tokyo Disney Resort",
+                description: "Первый парк Disney за пределами США. Сочетание японской культуры и диснеевской магии. Безупречная чистота, высочайший сервис и уникальные сезонные мероприятия.",
+                stats: ["📅 Открыт: 1983", "🎢 Аттракционы: 45+", "⭐ Площадь: 47 га", "🌍 Страна: Япония"]
+            },
+            shanghai: {
+                map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3414.994920634922!2d121.657048315131!3d31.144347381473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b2706d9999a4a1%3A0xe6b94e6b67c8c8c1!2sShanghai%20Disneyland!5e0!3m2!1sru!2sru!4v1690000000000!5m2!1sru!2sru",
+                title: "Shanghai Disney Resort",
+                description: "Самый новый и технологически продвинутый парк Disney. Уникальные аттракционы, созданные специально для Китая. Крупнейший замок Disney - Зачарованный сказочный зал.",
+                stats: ["📅 Открыт: 2016", "🎢 Аттракционы: 30+", "⭐ Площадь: 390 га", "🌍 Страна: Китай"]
+            },
+            hongkong: {
+                map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.837317920271!2d114.041666315342!3d22.31307198533086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403f8f2fa0d5a5f%3A0x4a8a4b4c4b4b4b4b!2sHong%20Kong%20Disneyland!5e0!3m2!1sru!2sru!4v1690000000000!5m2!1sru!2sru",
+                title: "Hong Kong Disneyland",
+                description: "Компактный и уютный парк с потрясающим видом на горы и море. Уникальное сочетание китайской культуры и Disney магии. Идеален для первого знакомства с Disney.",
+                stats: ["📅 Открыт: 2005", "🎢 Аттракционы: 25+", "⭐ Площадь: 27 га", "🌍 Страна: Гонконг, Китай"]
+            }
+        };
+
+        function changePark() {
+            const select = document.getElementById('park-select');
+            const park = parks[select.value];
+
+            const mapContainer = document.getElementById('park-map');
+            const detailsContainer = document.getElementById('park-details');
+
+            mapContainer.style.opacity = '0.7';
+            detailsContainer.style.opacity = '0.7';
+
+            setTimeout(() => {
+                document.getElementById('park-iframe').src = park.map;
+                document.getElementById('park-title').textContent = park.title;
+                document.getElementById('park-description').textContent = park.description;
+
+                const statsContainer = document.querySelector('.park-stats');
+                statsContainer.innerHTML = park.stats.map(stat => `<span>${stat}</span>`).join('');
+
+                mapContainer.style.opacity = '1';
+                detailsContainer.style.opacity = '1';
+
+            }, 300);
+        }
+    </script>
+
+    <style>
+        .interactive-parks {
+            background: linear-gradient(135deg, #ff6b6b, #8b00ff);
+            color: white;
+            padding: 40px 20px;
+            margin: 40px 0;
+            border-radius: 20px;
+        }
+
+        .park-selector {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            .park-selector select {
+                padding: 12px 20px;
+                border: none;
+                border-radius: 25px;
+                background: white;
+                color: #8b00ff;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+        .park-info {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #park-details {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .park-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+            .park-stats span {
+                background: rgba(255,255,255,0.2);
+                padding: 8px 15px;
+                border-radius: 20px;
+                font-weight: 500;
+            }
+
+        @media (max-width: 768px) {
+            .park-info {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .user-menu {
+            position: relative;
+        }
+
+        .user-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-weight: 500;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1em;
+        }
+
+            .user-btn:hover {
+                background: rgba(255,255,255,0.2);
+                transform: translateY(-2px);
+            }
+
+        .user-dropdown-box {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 320px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 10001;
+            margin-top: 10px;
+        }
+
+            .user-dropdown-box.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+           
+            .user-dropdown-box::before {
+                content: '';
+                position: absolute;
+                top: -8px;
+                right: 20px;
+                width: 16px;
+                height: 16px;
+                background: white;
+                transform: rotate(45deg);
+                border-radius: 3px;
+                border-left: 1px solid rgba(0,0,0,0.1);
+                border-top: 1px solid rgba(0,0,0,0.1);
+            }
+
+        .auth-container {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+            
+            .auth-container::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            .auth-container::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
+
+            .auth-container::-webkit-scrollbar-thumb {
+                background: #c1c1c1;
+                border-radius: 10px;
+            }
+
+                .auth-container::-webkit-scrollbar-thumb:hover {
+                    background: #a1a1a1;
+                }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 10px;
+            background: none;
+            border: none;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #666;
+            position: relative;
+            border-radius: 5px 5px 0 0;
+            font-weight: 500;
+        }
+
+            .auth-tab:hover {
+                background: #f8f9fa;
+                color: #333;
+            }
+
+            .auth-tab.active {
+                color: #667eea;
+                font-weight: 600;
+            }
+
+                .auth-tab.active::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -2px;
+                    left: 0;
+                    right: 0;
+                    height: 3px;
+                    background: #667eea;
+                    border-radius: 3px 3px 0 0;
+                }
+
+        .auth-form {
+            display: none;
+        }
+
+            .auth-form.active {
+                display: block;
+                animation: fadeIn 0.3s ease;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group input {
+                width: 100%;
+                padding: 12px 15px;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                font-size: 0.95em;
+                transition: all 0.3s ease;
+                box-sizing: border-box;
+                background: #fff;
+            }
+
+                .form-group input:focus {
+                    border-color: #8b00ff;
+                    outline: none;
+                    box-shadow: 0 0 0 3px rgba(139, 0, 255, 0.1);
+                }
+
+        .password-input {
+            position: relative;
+            display: flex;
+        }
+
+            .password-input input {
+                padding-right: 45px;
+            }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            padding: 5px;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+            .toggle-password:hover {
+                color: #333;
+            }
+
+        .password-strength {
+            margin-top: 8px;
+            font-size: 0.8em;
+        }
+
+        .strength-bar {
+            height: 4px;
+            background: #eee;
+            border-radius: 2px;
+            margin-bottom: 4px;
+            transition: all 0.3s ease;
+            width: 0;
+        }
+
+        .strength-text {
+            color: #666;
+            font-size: 0.85em;
+        }
+
+        .password-match {
+            font-size: 0.85em;
+            margin-top: 5px;
+            min-height: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 0.85em;
+        }
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            user-select: none;
+            color: #666;
+        }
+
+            .checkbox input[type="checkbox"] {
+                width: 16px;
+                height: 16px;
+                margin: 0;
+                cursor: pointer;
+            }
+
+        .forgot-password {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.85em;
+        }
+
+            .forgot-password:hover {
+                text-decoration: underline;
+            }
+
+        .auth-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+
+            .auth-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            }
+
+            .auth-btn:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+                transform: none;
+                box-shadow: none;
+            }
+
+        
+
+        .form-group.error input {
+            border-color: #ff6b6b;
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.8em;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transform: translateX(150%);
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            max-width: 350px;
+            overflow: hidden;
+        }
+
+            .notification.show {
+                transform: translateX(0);
+            }
+
+            .notification.success {
+                border-left: 4px solid #28a745;
+            }
+
+            .notification.error {
+                border-left: 4px solid #ff6b6b;
+            }
+
+            .notification.info {
+                border-left: 4px solid #667eea;
+            }
+
+        .notification-content {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .notification-icon {
+            font-size: 1.5em;
+        }
+
+        .notification-text {
+            flex: 1;
+            color: #333;
+            font-size: 0.95em;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #666;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease;
+        }
+
+            .notification-close:hover {
+                color: #333;
+            }
+
+        
+        .user-btn.logged-in {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+            .user-btn.logged-in .user-name {
+                font-weight: 600;
+            }
+
+        
+        @media (max-width: 768px) {
+            .user-dropdown-box {
+                position: fixed;
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%) translateY(-10px);
+                width: 90%;
+                max-width: 350px;
+                margin-top: 0;
+                z-index: 10002;
+            }
+
+                .user-dropdown-box.active {
+                    transform: translateX(-50%) translateY(0);
+                }
+
+                .user-dropdown-box::before {
+                    display: none;
+                }
+
+            .auth-container {
+                max-height: 60vh;
+            }
+
+            .social-auth {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .user-dropdown-box {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .user-btn {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+
+            .user-name {
+                font-size: 0.9em;
+            }
+
+            .auth-tab {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+
+            .form-group input {
+                padding: 10px 12px;
+                font-size: 0.9em;
+            }
+
+            .notification {
+                left: 20px;
+                right: 20px;
+                max-width: none;
+                transform: translateY(-150%);
+            }
+
+                .notification.show {
+                    transform: translateY(0);
+                }
+        }
+        
+        .site-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+            gap: 30px;
+        }
+
+        
+        .header-left {
+            flex-shrink: 0;
+        }
+
+        .logo-link {
+            display: block;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+            .logo-link:hover {
+                transform: scale(1.05);
+            }
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        
+        .header-center {
+            flex: 1;
+            text-align: center;
+        }
+
+        .main-title-white {
+            font-family: "Playpen Sans", cursive;
+            font-size: 2.4em;
+            font-weight: 700;
+            margin: 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.1;
+        }
+
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-shrink: 0;
+        }
+
+        
+        .header-nav {
+            display: flex;
+            gap: 5px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+            .nav-link::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                transition: left 0.5s ease;
+            }
+
+            .nav-link:hover::before {
+                left: 100%;
+            }
+
+            .nav-link:hover {
+                background: rgba(255,255,255,0.15);
+                transform: translateY(-2px);
+            }
+
+            .nav-link.active {
+                background: linear-gradient(135deg, #ff6b6b, #8b00ff);
+                box-shadow: 0 5px 15px rgba(139,0,255,0.4);
+            }
+
+        .nav-text {
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-search {
+            position: relative;
+        }
+
+        .search-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 1.2em;
+            position: relative;
+            z-index: 10000;
+        }
+
+            .search-toggle:hover {
+                background: rgba(255,255,255,0.2);
+                transform: scale(1.1);
+                box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+            }
+
+        .search-box {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 10001;
+            margin-top: 10px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+            .search-box.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+           
+            .search-box::before {
+                content: '';
+                position: absolute;
+                top: -8px;
+                right: 20px;
+                width: 16px;
+                height: 16px;
+                background: white;
+                transform: rotate(45deg);
+                border-radius: 3px;
+                border-left: 1px solid rgba(0,0,0,0.1);
+                border-top: 1px solid rgba(0,0,0,0.1);
+            }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+            background: #fff;
+        }
+
+            .search-input:focus {
+                border-color: #8b00ff;
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(139, 0, 255, 0.1);
+            }
+
+        
+        .search-suggestions {
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            position: relative;
+            z-index: 10002;
+        }
+
+        .search-suggestion {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border-bottom: 1px solid #e9ecef;
+            background: #fff;
+        }
+
+            .search-suggestion:last-child {
+                border-bottom: none;
+            }
+
+            .search-suggestion:hover {
+                background-color: #e9ecef;
+            }
+
+        .suggestion-icon {
+            font-size: 1.2em;
+            width: 20px;
+            text-align: center;
+        }
+
+        .suggestion-text {
+            flex: 1;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .suggestion-type {
+            font-size: 0.8em;
+            color: #666;
+            background: #dee2e6;
+            padding: 4px 8px;
+            border-radius: 10px;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #666;
+            padding: 20px;
+            font-style: italic;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        
+        .user-menu {
+            position: relative;
+        }
+
+        .user-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-weight: 500;
+        }
+
+            .user-btn:hover {
+                background: rgba(255,255,255,0.2);
+                transform: translateY(-2px);
+            }
+
+        .user-name {
+            font-size: 1em;
+        }
+
+        
+        .header-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .bg-1 {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .bg-2 {
+            width: 120px;
+            height: 120px;
+            bottom: 10%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .bg-3 {
+            width: 60px;
+            height: 60px;
+            top: 50%;
+            right: 25%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-20px) rotate(120deg);
+            }
+
+            66% {
+                transform: translateY(10px) rotate(240deg);
+            }
+        }
+
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .search-box.active {
+            animation: slideDown 0.3s ease;
+        }
+
+        .site-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 0;
+            position: relative;
+            overflow: visible; 
+            z-index: 9999; 
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 10000; 
+            gap: 30px;
+        }
+
+        
+        @media (max-width: 1200px) {
+            .header-container {
+                gap: 20px;
+            }
+
+            .main-title-white {
+                font-size: 2em;
+            }
+
+            .logo-image {
+                height: 50px;
+            }
+
+            .nav-link {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .header-right {
+                gap: 20px;
+            }
+
+            .header-nav {
+                gap: 3px;
+            }
+
+            .main-title-white {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .main-title-white {
+                display: none;
+            }
+
+            .header-center {
+                display: none;
+            }
+
+            .header-container {
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 10px 0;
+            }
+
+            .header-container {
+                padding: 0 15px;
+                gap: 15px;
+            }
+
+            .logo-image {
+                height: 45px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .header-right {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                border-radius: 0 0 20px 20px;
+            }
+
+                .header-right.active {
+                    display: flex;
+                }
+
+            .header-nav {
+                flex-direction: column;
+                width: 100%;
+                background: transparent;
+                border: none;
+                padding: 0;
+            }
+
+            .nav-link {
+                justify-content: center;
+                border-radius: 15px;
+                padding: 15px;
+            }
+
+            .header-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .search-toggle, .user-btn {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .search-box {
+                position: fixed;
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%) translateY(-10px);
+                width: 90%;
+                max-width: 400px;
+                margin-top: 0;
+            }
+
+                .search-box.active {
+                    transform: translateX(-50%) translateY(0);
+                }
+
+                .search-box::before {
+                    display: none;
+                }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image {
+                height: 40px;
+            }
+
+            .header-container {
+                padding: 0 10px;
+            }
+
+            .header-right {
+                padding: 15px;
+            }
+
+            .search-box {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .search-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1em;
+            }
+
+            .user-name {
+                display: none;
+            }
+
+            .user-btn {
+                padding: 8px 12px;
+            }
+        }
+        
+        .parks-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: #2c3e50;
+            color: white;
+        }
+
+            .parks-header h1 {
+                font-size: 3em;
+                margin-bottom: 20px;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            }
+
+            .parks-header p {
+                font-size: 1.3em;
+                opacity: 0.9;
+                max-width: 600px;
+                margin: 0 auto;
+                line-height: 1.6;
+            }
+
+        .parks-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            background: white;
+        }
+
+        .park-stat {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .stat-icon {
+            font-size: 3em;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .parks-map-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            text-align: center;
+        }
+
+        .world-map {
+            position: relative;
+            max-width: 800px;
+            height: 400px;
+            margin: 40px auto;
+            background: #e3f2fd;
+            border-radius: 20px;
+            border: 3px solid #bbdefb;
+            overflow: hidden;
+        }
+
+        .map-point {
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+            .map-point:hover {
+                transform: scale(1.2);
+            }
+
+        .usa {
+            top: 30%;
+            left: 20%;
+        }
+
+        .france {
+            top: 35%;
+            left: 48%;
+        }
+
+        .japan {
+            top: 35%;
+            left: 80%;
+        }
+
+        .china {
+            top: 45%;
+            left: 75%;
+        }
+
+        .hongkong {
+            top: 50%;
+            left: 75%;
+        }
+
+        .point-marker {
+            font-size: 2em;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .point-info {
+            background: white;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-top: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .parks-list {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .parks-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 25px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+            .filter-btn.active,
+            .filter-btn:hover {
+                background: #667eea;
+                color: white;
+                transform: translateY(-2px);
+            }
+
+        .parks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .park-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+            .park-card:hover {
+                transform: translateY(-10px);
+                border-color: #8b00ff;
+                box-shadow: 0 20px 40px rgba(139,0,255,0.2);
+            }
+
+        .park-header {
+            position: relative;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .park-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
+
+        .park-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+        }
+
+        .park-content {
+            padding: 30px;
+        }
+
+            .park-content h3 {
+                color: #2c3e50;
+                margin-bottom: 10px;
+                font-size: 1.5em;
+            }
+
+        .park-location {
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .park-description {
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .park-details {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .detail-value {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .park-attractions {
+            margin-bottom: 20px;
+        }
+
+            .park-attractions ul {
+                list-style: none;
+                padding: 0;
+                margin: 10px 0 0 0;
+            }
+
+            .park-attractions li {
+                padding: 5px 0;
+                color: #555;
+            }
+
+        .park-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .highlight-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .park-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .park-info-btn, .park-plan-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .park-info-btn {
+            background: #6c757d;
+            color: white;
+        }
+
+        .park-plan-btn {
+            background: #28a745;
+            color: white;
+        }
+
+        .park-info-btn:hover {
+            background: #5a6268;
+        }
+
+        .park-plan-btn:hover {
+            background: #218838;
+        }
+
+        .attractions-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #ff6b6b, #8b00ff);
+            color: white;
+        }
+
+        .attractions-slider {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .attractions-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .attraction-slide {
+            min-width: 100%;
+            padding: 20px;
+        }
+
+        .attraction-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .attraction-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .attraction-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .attraction-park {
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .attraction-desc {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .attraction-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .wait-time, .height-limit {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        .attraction-prev, .attraction-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2em;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .attraction-prev {
+            left: 20px;
+        }
+
+        .attraction-next {
+            right: 20px;
+        }
+
+        .attractions-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .attraction-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+            .attraction-dot.active {
+                background: white;
+            }
+
+        .tips-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+        }
+
+        .tip-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-left: 4px solid #8b00ff;
+        }
+
+            .tip-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .tip-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .tip-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .tip-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .events-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: white;
+        }
+
+        .events-timeline {
+            max-width: 800px;
+            margin: 40px auto 0;
+            position: relative;
+        }
+
+            .events-timeline::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: rgba(255,255,255,0.3);
+                transform: translateX(-50%);
+            }
+
+        .event-period {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+            .event-period:nth-child(odd) {
+                flex-direction: row-reverse;
+                text-align: right;
+            }
+
+        .event-date {
+            flex: 1;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 0 20px;
+        }
+
+        .event-content {
+            flex: 2;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+            .event-content h3 {
+                margin-bottom: 10px;
+                font-size: 1.3em;
+            }
+
+        .planning-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .planning-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .planning-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+            .form-group label {
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+
+            .form-group select,
+            .form-group input {
+                padding: 12px 15px;
+                border: none;
+                border-radius: 10px;
+                font-size: 1em;
+                background: rgba(255,255,255,0.9);
+            }
+
+        .interests-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .interest-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.18);
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: 0.3s;
+        }
+            .interest-option:hover {
+                background: rgba(255, 255, 255, 0.28);
+            }
+
+            
+            .interest-option input[type="checkbox"] {
+                width: 20px;
+                height: 20px;
+                accent-color: #fff;
+                cursor: pointer;
+            }
+
+        .planning-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+            .planning-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            }
+
+        
+        @media (max-width: 768px) {
+            .parks-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .park-stat {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .world-map {
+                height: 300px;
+            }
+
+            .parks-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .parks-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn {
+                width: 200px;
+            }
+
+            .events-timeline::before {
+                left: 30px;
+            }
+
+            .event-period {
+                flex-direction: row !important;
+                text-align: left !important;
+                padding-left: 70px;
+            }
+
+            .event-date {
+                position: absolute;
+                left: 0;
+                width: 50px;
+                text-align: center;
+            }
+
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .park-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .parks-header h1 {
+                font-size: 2.2em;
+            }
+
+            .attraction-card {
+                padding: 20px;
+            }
+
+            .planning-card {
+                padding: 20px;
+            }
+
+            .attraction-prev, .attraction-next {
+                width: 40px;
+                height: 40px;
+            }
+            .interest-option {
+                font-size: 16px;
+                padding: 10px 14px;
+                gap: 10px;
+            }
+
+                .interest-option input[type="checkbox"] {
+                    width: 18px;
+                    height: 18px;
+                }
+        }
+
+    </style>
+</body>
+</html>

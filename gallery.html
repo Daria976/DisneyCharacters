@@ -1,0 +1,3367 @@
+﻿<!DOCTYPE html>
+<link rel="icon" type="image/png" href="images\фавиконка.jpg">
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея персонажей Диснея</title>
+    <meta name="description" content="Полная коллекция персонажей Диснея: принцессы, герои, злодеи и животные. Фотографии, описания и интересные факты.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-bg-elements">
+            <div class="bg-element bg-1"></div>
+            <div class="bg-element bg-2"></div>
+            <div class="bg-element bg-3"></div>
+        </div>
+
+        <div class="header-container">
+            <div class="header-left">
+                <a href="index.html" class="logo-link">
+                    <img src="C:\Users\Asus\Desktop\Новая папка\images\Disney_Logo.webp" alt="Disney Logo" class="logo-image">
+                </a>
+            </div>
+
+            <div class="header-center">
+                <h1 class="main-title-white">Персонажи Диснея</h1>
+            </div>
+
+            <div class="header-right">
+                <nav class="header-nav" id="main-nav">
+                    <div class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <span class="nav-text">Главная</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="gallery.html" class="nav-link">
+                            <span class="nav-text">Галерея</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="parks.html" class="nav-link">
+                            <span class="nav-text">Парки</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="quiz.html" class="nav-link">
+                            <span class="nav-text">Викторина</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="stories.html" class="nav-link">
+                            <span class="nav-text">Истории</span>
+                        </a>
+                    </div>
+                </nav>
+
+                <div class="header-actions">
+                    <div class="header-search">
+                        <button class="search-toggle" onclick="toggleSearch()">
+                            🔍
+                        </button>
+                        <div class="search-box" id="search-box">
+                            <input type="text" class="search-input" placeholder="Поиск персонажей, фильмов...">
+                            <div class="search-suggestions" id="search-suggestions"></div>
+                        </div>
+                    </div>
+
+                    <div class="user-menu">
+                        <button class="user-btn" onclick="toggleUserDropdown()">
+                            <span class="user-name">Гость</span>
+                        </button>
+
+                        <div class="user-dropdown-box" id="user-dropdown-box">
+                            <div class="auth-container">
+                                <div class="auth-tabs">
+                                    <button class="auth-tab active" data-tab="login">Вход</button>
+                                    <button class="auth-tab" data-tab="register">Регистрация</button>
+                                </div>
+
+                                <form id="login-form" class="auth-form active" data-form="login">
+                                    <div class="form-group">
+                                        <input type="email" id="login-email" placeholder="Email" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="password-input">
+                                            <input type="password" id="login-password" placeholder="Пароль" required>
+                                            <button type="button" class="toggle-password" onclick="togglePassword('login-password')">👁️</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-options">
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="remember-me">
+                                            <span>Запомнить меня</span>
+                                        </label>
+                                        <a href="#forgot" class="forgot-password">Забыли пароль?</a>
+                                    </div>
+
+                                    <button type="submit" class="auth-btn">Войти</button>
+
+
+                                </form>
+
+                                
+                                <form id="register-form" class="auth-form" data-form="register">
+                                    <div class="form-group">
+                                        <input type="text" id="register-name" placeholder="Имя" required minlength="2">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="email" id="register-email" placeholder="Email" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="password-input">
+                                            <input type="password" id="register-password" placeholder="Пароль" required minlength="6">
+                                            <button type="button" class="toggle-password" onclick="togglePassword('register-password')">👁️</button>
+                                        </div>
+                                        <div class="password-strength" id="password-strength">
+                                            <div class="strength-bar"></div>
+                                            <span class="strength-text">Введите пароль</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="password-input">
+                                            <input type="password" id="register-confirm" placeholder="Подтвердите пароль" required>
+                                            <button type="button" class="toggle-password" onclick="togglePassword('register-confirm')">👁️</button>
+                                        </div>
+                                        <div class="password-match" id="password-match"></div>
+                                    </div>
+
+                                    <div class="form-group terms-group">
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="accept-terms" required>
+                                            <span>Я согласен с <a href="#terms">условиями</a></span>
+                                        </label>
+                                    </div>
+
+                                    <button type="submit" class="auth-btn">Зарегистрироваться</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    
+    <div class="layout-1">
+        <header class="gallery-header">
+            <h1>🎨 Коллекция персонажей Диснея</h1>
+            <p>Откройте для себя всех ваших любимых героев, злодеев и волшебных созданий из мира Disney</p>
+        </header>
+
+        
+        <section class="gallery-controls">
+            <div class="search-container">
+                <input type="text" id="character-search" placeholder="🔍 Поиск персонажа..." class="search-input">
+                <div id="search-results" class="search-results"></div>
+            </div>
+
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label>Категория:</label>
+                    <select id="category-filter" class="filter-select">
+                        <option value="all">Все персонажи</option>
+                        <option value="princess">Принцессы</option>
+                        <option value="prince">Принцы</option>
+                        <option value="hero">Герои</option>
+                        <option value="villain">Злодеи</option>
+                        <option value="animal">Животные</option>
+                        <option value="fantasy">Фантастические</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Фильм:</label>
+                    <select id="movie-filter" class="filter-select">
+                        <option value="all">Все фильмы</option>
+                        <option value="frozen">Холодное сердце</option>
+                        <option value="lionking">Король Лев</option>
+                        <option value="beauty">Красавица и Чудовище</option>
+                        <option value="aladdin">Аладдин</option>
+                        <option value="littlemermaid">Русалочка</option>
+                        <option value="moana">Моана</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Сортировка:</label>
+                    <select id="sort-filter" class="filter-select">
+                        <option value="name">По имени (А-Я)</option>
+                        <option value="name-desc">По имени (Я-А)</option>
+                        <option value="movie">По фильму</option>
+                        <option value="year">По году выхода</option>
+                    </select>
+                </div>
+
+                <button class="reset-filters" onclick="resetFilters()">❌ Сбросить</button>
+            </div>
+        </section>
+
+        <div class="filter-stats">
+            <span id="characters-count">0</span> персонажей найдено
+            <span class="filter-tags" id="filter-tags"></span>
+        </div>
+
+        
+        <section class="characters-gallery">
+            <div class="gallery-grid" id="gallery-grid">
+            </div>
+
+            
+            <div id="loading-indicator" class="loading-indicator">
+                <div class="spinner"></div>
+                <p>Загрузка персонажей...</p>
+            </div>
+
+            
+            <div class="load-more-container">
+                <button id="load-more" class="load-more-btn" onclick="loadMoreCharacters()">
+                    📥 Показать еще персонажей
+                </button>
+            </div>
+        </section>
+
+        
+        <div id="quick-view-modal" class="modal quick-view-modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeQuickView()">&times;</span>
+                <div id="quick-view-content"></div>
+            </div>
+        </div>
+
+        <div id="detail-modal" class="modal detail-modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeDetailModal()">&times;</span>
+                <div id="detail-modal-content"></div>
+            </div>
+        </div>
+
+        
+        <section class="fun-facts">
+            <h2>📚 Интересные факты о персонажах</h2>
+            <div class="facts-carousel">
+                <div class="fact-slide active">
+                    <h3>👑 Принцессы Disney</h3>
+                    <p>Знаете ли вы, что у каждой принцессы Disney свой официальный цвет? Например, цвет Золушки - синий, а Бель - желтый.</p>
+                </div>
+                <div class="fact-slide">
+                    <h3>🎭 Злодеи</h3>
+                    <p>Многие злодеи Disney имеют фиолетовый цвет в своей палитре - это символизирует магию, тайну и опасность.</p>
+                </div>
+                <div class="fact-slide">
+                    <h3>🐾 Животные-компаньоны</h3>
+                    <p>Почти у каждого главного героя Disney есть животное-компаньон, который помогает им в путешествии.</p>
+                </div>
+                <button class="fact-prev" onclick="prevFact()">‹</button>
+                <button class="fact-next" onclick="nextFact()">›</button>
+            </div>
+        </section>
+
+        
+        <section class="character-of-day">
+            <div class="character-day-card">
+                <div class="day-badge">🌟 Персонаж дня</div>
+                <div class="day-character-content">
+                    <div class="day-character-image">
+                        <div class="character-avatar" id="day-character-avatar">👑</div>
+                    </div>
+                    <div class="day-character-info">
+                        <h3 id="day-character-name">Бель</h3>
+                        <p id="day-character-desc">Умная и мечтательная красавица, которая разглядела добро сквозь внешность</p>
+                        <div class="day-character-stats">
+                            <span>🎬 Красавица и Чудовище</span>
+                            <span>📅 1991 год</span>
+                            <span>⭐ Любимая книга: Ромео и Джульетта</span>
+                        </div>
+                        <button class="day-character-btn" onclick="showCharacterDetails(dayCharacter.id)">Узнать больше</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    
+    <footer class="animated-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>🌍 Навигация</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="gallery.html">Галерея</a></li>
+                    <li><a href="parks.html">Парки</a></li>
+                    <li><a href="quiz.html">Викторина</a></li>
+                    <li><a href="stories.html">Истории</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>👑 Категории</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="filterByCategory('princess')">Принцессы</a></li>
+                    <li><a href="#" onclick="filterByCategory('hero')">Герои</a></li>
+                    <li><a href="#" onclick="filterByCategory('villain')">Злодеи</a></li>
+                    <li><a href="#" onclick="filterByCategory('animal')">Животные</a></li>
+                    <li><a href="#" onclick="filterByCategory('prince')">Принцы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">© 2024 Галерея персонажей Диснея</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSearch() {
+            const searchBox = document.getElementById('search-box');
+
+            searchBox.classList.toggle('active');
+
+            if (searchBox.classList.contains('active')) {
+                setTimeout(() => {
+                    const input = document.querySelector('.search-input');
+                    if (input) {
+                        input.focus();
+                        input.click();
+                    }
+                }, 300);
+            }
+        }
+
+
+        function closeAllDropdowns() {
+            const searchBox = document.getElementById('search-box');
+            searchBox.classList.remove('active');
+
+            if (window.innerWidth <= 768) {
+                const headerRight = document.querySelector('.header-right');
+                headerRight.classList.remove('active');
+            }
+        }
+
+        function toggleMobileMenu() {
+            const headerRight = document.querySelector('.header-right');
+            const isActive = headerRight.classList.contains('active');
+
+            closeAllDropdowns();
+
+            if (!isActive) {
+                headerRight.classList.add('active');
+            }
+        }
+
+        document.addEventListener('click', function (event) {
+            const searchBox = document.getElementById('search-box');
+            const searchToggle = document.querySelector('.search-toggle');
+            const headerRight = document.querySelector('.header-right');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+
+            console.log('Document click event');
+
+            if (searchBox.classList.contains('active') &&
+                !searchBox.contains(event.target) &&
+                !searchToggle.contains(event.target)) {
+                console.log('Closing search box - clicked outside');
+                searchBox.classList.remove('active');
+            }
+
+            if (window.innerWidth <= 768) {
+                if (headerRight.classList.contains('active') &&
+                    !headerRight.contains(event.target) &&
+                    !mobileToggle.contains(event.target)) {
+                    headerRight.classList.remove('active');
+                }
+            }
+        });
+
+
+        function setupHeaderSearch() {
+            const searchInput = document.querySelector('.search-input');
+            const suggestions = document.getElementById('search-suggestions');
+
+            if (!searchInput) {
+                console.error('Search input not found!');
+                return;
+            }
+
+            searchInput.addEventListener('input', debounce(function (e) {
+                const value = e.target.value.trim();
+                suggestions.innerHTML = '';
+
+                if (value.length > 1) {
+                    showSearchSuggestions(value);
+                } else if (value.length === 0) {
+                    suggestions.innerHTML = '<div class="no-results">Введите имя персонажа или фильма</div>';
+                }
+            }, 300));
+
+            searchInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    performSearch(this.value);
+                }
+            });
+
+            searchInput.addEventListener('focus', function () {
+                if (this.value.trim() === '') {
+                    suggestions.innerHTML = '<div class="no-results">Введите имя персонажа или фильма</div>';
+                }
+            });
+        }
+
+        function showSearchSuggestions(query) {
+            const suggestions = [
+                { name: "Микки Маус", type: "character", url: "gallery.html#mickey", icon: "🐭" },
+                { name: "Эльза", type: "character", url: "gallery.html#elsa", icon: "❄️" },
+                { name: "Симба", type: "character", url: "gallery.html#simba", icon: "🦁" },
+                { name: "Бель", type: "character", url: "gallery.html#belle", icon: "👑" },
+                { name: "Холодное сердце", type: "movie", url: "gallery.html?movie=frozen", icon: "🎬" },
+                { name: "Король Лев", type: "movie", url: "gallery.html?movie=lionking", icon: "🎬" }
+            ];
+
+            const matches = suggestions.filter(item =>
+                item.name.toLowerCase().includes(query.toLowerCase())
+            );
+
+            const suggestionsContainer = document.getElementById('search-suggestions');
+
+            if (matches.length > 0) {
+                suggestionsContainer.innerHTML = matches.map(item => `
+                <div class="search-suggestion" onclick="selectSuggestion('${item.name}', '${item.url}')">
+                    <span class="suggestion-icon">${item.icon}</span>
+                    <span class="suggestion-text">${item.name}</span>
+                    <span class="suggestion-type">${item.type === 'character' ? 'Персонаж' : 'Фильм'}</span>
+                </div>
+            `).join('');
+            } else {
+                suggestionsContainer.innerHTML = '<div class="no-results">Ничего не найдено. Попробуйте другой запрос.</div>';
+            }
+        }
+
+        function selectSuggestion(term, url) {
+            document.querySelector('.search-input').value = term;
+            document.getElementById('search-box').classList.remove('active');
+
+            setTimeout(() => {
+                if (url.includes('#')) {
+                    window.location.href = url;
+                } else {
+                    window.location.href = `${url}&search=${encodeURIComponent(term)}`;
+                }
+            }, 300);
+        }
+
+        function performSearch(term) {
+            if (term.trim()) {
+                document.getElementById('search-box').classList.remove('active');
+                window.location.href = `gallery.html?search=${encodeURIComponent(term)}`;
+            }
+        }
+
+        function setActiveNavLink() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeAllDropdowns();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.search-toggle').onclick = toggleSearch;
+
+            document.addEventListener('click', function (e) {
+                const searchBox = document.getElementById('search-box');
+                const toggle = document.querySelector('.search-toggle');
+
+                if (searchBox.classList.contains('active') &&
+                    !searchBox.contains(e.target) &&
+                    !toggle.contains(e.target)) {
+                    searchBox.classList.remove('active');
+                }
+            });
+        });
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        const charactersData = [
+            {
+                id: 1,
+                name: "Микки Маус",
+                category: "hero",
+                movie: "Пароход Уилли",
+                year: 1928,
+                image: "images/mickey.png",
+                description: "Символ компании Disney и один из самых узнаваемых персонажей в мире.",
+                fullDescription: "Микки Маус был создан Уолтом Диснеем и Абом Айверксом в 1928 году. Он дебютировал в короткометражном мультфильме 'Пароход Уилли' и с тех пор стал символом компании Disney.",
+                voiceActor: "Уолт Дисней",
+                firstAppearance: "Пароход Уилли (1928)",
+                friends: ["Минни Маус", "Дональд Дак", "Гуфи"],
+                color: "Красный и желтый",
+                funFact: "Первоначально Микки должны были назвать Мортимер, но жена Уолта Диснея предложила имя Микки."
+            },
+            {
+                id: 2,
+                name: "Бель",
+                category: "princess",
+                movie: "Красавица и Чудовище",
+                year: 1991,
+                image: "images/belle.png",
+                description: "Умная и мечтательная красавица, которая разглядела добро сквозь внешность.",
+                fullDescription: "Бель - главная героиня мультфильма 'Красавица и Чудовище'. Она любит читать книги и мечтает о приключениях. Её доброта и эмпатия помогли расколдовать Принца.",
+                voiceActor: "Пейдж О'Хара",
+                firstAppearance: "Красавица и Чудовище (1991)",
+                friends: ["Чудовище", "Люмьер", "Когсворт"],
+                color: "Желтый",
+                funFact: "Бель стала первой принцессой Disney, которая сама является главной героиней истории, а не объектом спасения."
+            },
+            {
+                id: 3,
+                name: "Симба",
+                category: "hero",
+                movie: "Король Лев",
+                year: 1994,
+                image: "images/simba.png",
+                description: "Будущий король Земель Прайда, прошедший путь от изгнанника до мудрого правителя.",
+                fullDescription: "Симба - главный герой мультфильма 'Король Лев'. После смерти отца Муфасы он бежит из прайда, но возвращается, чтобы занять свое законное место короля.",
+                voiceActor: "Мэттью Бродерик",
+                firstAppearance: "Король Лев (1994)",
+                friends: ["Нала", "Тимон", "Пумба"],
+                color: "Золотистый",
+                funFact: "Король Лев' стал самым кассовым традиционно анимированным фильмом в истории."
+            },
+            {
+                id: 4,
+                name: "Малефисента",
+                category: "villain",
+                movie: "Спящая красавица",
+                year: 1959,
+                image: "images/maleficent.png",
+                description: "Могущественная волшебница, Владычица Тёмных Сил.",
+                fullDescription: "Малефисента - главная антагонистка мультфильма 'Спящая красавица'. Она прокляла принцессу Аврору на вечный сон в день её шестнадцатилетия.",
+                voiceActor: "Элинор Одели",
+                firstAppearance: "Спящая красавица (1959)",
+                friends: ["Диабло (ворон)"],
+                color: "Черный и фиолетовый",
+                funFact: "Малефисента была вдохновлена персонажем из балета Чайковского 'Спящая красавица'."
+            },
+            {
+                id: 5,
+                name: "Эльза",
+                category: "princess",
+                movie: "Холодное сердце",
+                year: 2013,
+                image: "images/elza.png",
+                description: "Королева Эренделла с магической силой создавать лед и снег.",
+                fullDescription: "Эльза - старшая сестра Анны и королева Эренделла. Она обладает магической силой контролировать лед и снег. Песня 'Let It Go' стала визитной карточкой персонажа.",
+                voiceActor: "Идина Мензел",
+                firstAppearance: "Холодное сердце (2013)",
+                friends: ["Анна", "Олаф", "Кристофф"],
+                color: "Голубой и серебряный",
+                funFact: "Песня 'Let It Go' была переведена на 41 язык для разных версий фильма."
+            },
+            {
+                id: 6,
+                name: "Джафар",
+                category: "villain",
+                movie: "Аладдин",
+                year: 1992,
+                image: "images/jafar.png",
+                description: "Коварный визирь султана Аграбы, стремящийся к власти.",
+                fullDescription: "Джафар - главный антагонист мультфильма 'Аладдин'. Как визирь султана, он манипулирует правителем и стремится заполучить лампу Джинна для осуществления своих планов.",
+                voiceActor: "Джонатан Фриман",
+                firstAppearance: "Аладдин (1992)",
+                friends: ["Яго (попугай)"],
+                color: "Красный и черный",
+                funFact: "Джафар был номинирован на звание 'Величайшего злодея' по версии Американского института кино."
+            },
+            {
+                id: 7,
+                name: "Моана",
+                category: "princess",
+                movie: "Моана",
+                year: 2016,
+                image: "images/moana.png",
+                description: "Отважная мореплавательница, выбранная океаном для спасения своего народа.",
+                fullDescription: "Моана - дочь вождя острова Мотонуи. Когда её острову начинает угрожать опасность, она отправляется в опасное путешествие через океан, чтобы спасти свой народ.",
+                voiceActor: "Аулии Кравальо",
+                firstAppearance: "Моана (2016)",
+                friends: ["Мауи", "ХейХей"],
+                color: "Красный и бирюзовый",
+                funFact: "Моана стала первой принцессой Disney из Полинезии."
+            },
+            {
+                id: 8,
+                name: "Мулан",
+                category: "hero",
+                movie: "Мулан",
+                year: 1998,
+                image: "images/mulan.png",
+                description: "Храбрая воительница, которая выдала себя за мужчину, чтобы защитить свою семью и страну.",
+                fullDescription: "Мулан - единственная дочь в семье, которая занимает место своего больного отца в армии. Её храбрость и ум помогают ей стать великой воительницей.",
+                voiceActor: "Минг-На Вен",
+                firstAppearance: "Мулан (1998)",
+                friends: ["Мушу", "Ли Шан"],
+                color: "Зеленый и красный",
+                funFact: "Мулан - единственная принцесса Disney, которая не является принцессой по рождению или браку."
+            }
+        ];
+
+        
+        let filteredCharacters = [];
+        let displayedCount = 8;
+        let currentFactIndex = 0;
+        let dayCharacter = charactersData[1]; 
+
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeGallery();
+            setupEventListeners();
+            startFactCarousel();
+            setDayCharacter();
+            setActiveNavLink();
+        });
+
+        function initializeGallery() {
+            filteredCharacters = [...charactersData];
+            renderCharacters();
+            updateCharactersCount();
+        }
+
+        function renderCharacters() {
+            const grid = document.getElementById('gallery-grid');
+            const charactersToShow = filteredCharacters.slice(0, displayedCount);
+
+            grid.innerHTML = charactersToShow.map(character => `
+                                    <div class="character-card" data-category="${character.category}" data-movie="${character.movie.toLowerCase().replace(/\s+/g, '')}">
+                                        <div class="character-image">
+                                            <div class="character-avatar">
+                                                <img src="${character.image}" alt="${character.name}">
+                                            </div>
+                                            <div class="character-badges">
+                                                <span class="category-badge ${character.category}">${getCategoryIcon(character.category)}</span>
+                                                <span class="year-badge">${character.year}</span>
+                                            </div>
+                                        </div>
+                                        <div class="character-info">
+                                            <h3 class="character-name">${character.name}</h3>
+                                            <p class="character-movie">🎬 ${character.movie}</p>
+                                            <p class="character-desc">${character.description}</p>
+                                            <div class="character-actions">
+                                                <button class="quick-view-btn" onclick="showQuickView(${character.id})">👀 Быстрый просмотр</button>
+                                                <button class="detail-btn" onclick="showCharacterDetails(${character.id})">📖 Подробнее</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('');
+
+           
+            const loadMoreBtn = document.getElementById('load-more');
+            if (displayedCount >= filteredCharacters.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+            }
+
+            document.getElementById('loading-indicator').style.display = 'none';
+        }
+
+        function loadMoreCharacters() {
+            displayedCount += 4;
+            renderCharacters();
+        }
+
+        function setupEventListeners() {
+            const searchInput = document.getElementById('character-search');
+            const categoryFilter = document.getElementById('category-filter');
+            const movieFilter = document.getElementById('movie-filter');
+            const sortFilter = document.getElementById('sort-filter');
+
+            searchInput.addEventListener('input', debounce(function (e) {
+                filterCharacters();
+            }, 300));
+
+            categoryFilter.addEventListener('change', filterCharacters);
+            movieFilter.addEventListener('change', filterCharacters);
+            sortFilter.addEventListener('change', filterCharacters);
+        }
+
+        function filterCharacters() {
+            const searchTerm = document.getElementById('character-search').value.toLowerCase();
+            const category = document.getElementById('category-filter').value;
+            const movie = document.getElementById('movie-filter').value;
+            const sortBy = document.getElementById('sort-filter').value;
+
+            filteredCharacters = charactersData.filter(character => {
+                const matchesSearch = character.name.toLowerCase().includes(searchTerm) ||
+                    character.movie.toLowerCase().includes(searchTerm) ||
+                    character.description.toLowerCase().includes(searchTerm);
+                const matchesCategory = category === 'all' || character.category === category;
+                const matchesMovie = movie === 'all' ||
+                    character.movie.toLowerCase().replace(/\s+/g, '') === movie;
+
+                return matchesSearch && matchesCategory && matchesMovie;
+            });
+
+            sortCharacters(sortBy);
+
+            displayedCount = 8;
+
+            renderCharacters();
+            updateCharactersCount();
+            updateFilterTags(searchTerm, category, movie);
+        }
+
+        function sortCharacters(sortBy) {
+            switch (sortBy) {
+                case 'name':
+                    filteredCharacters.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'name-desc':
+                    filteredCharacters.sort((a, b) => b.name.localeCompare(a.name));
+                    break;
+                case 'movie':
+                    filteredCharacters.sort((a, b) => a.movie.localeCompare(b.movie));
+                    break;
+                case 'year':
+                    filteredCharacters.sort((a, b) => a.year - b.year);
+                    break;
+            }
+        }
+
+        function resetFilters() {
+            document.getElementById('character-search').value = '';
+            document.getElementById('category-filter').value = 'all';
+            document.getElementById('movie-filter').value = 'all';
+            document.getElementById('sort-filter').value = 'name';
+
+            filteredCharacters = [...charactersData];
+            displayedCount = 8;
+            renderCharacters();
+            updateCharactersCount();
+            updateFilterTags('', 'all', 'all');
+        }
+
+        function filterByCategory(category) {
+            document.getElementById('category-filter').value = category;
+            filterCharacters();
+        }
+
+        function updateCharactersCount() {
+            document.getElementById('characters-count').textContent = filteredCharacters.length;
+        }
+
+        function updateFilterTags(searchTerm, category, movie) {
+            const tagsContainer = document.getElementById('filter-tags');
+            const tags = [];
+
+            if (searchTerm) tags.push(`Поиск: "${searchTerm}"`);
+            if (category !== 'all') tags.push(`Категория: ${getCategoryName(category)}`);
+            if (movie !== 'all') tags.push(`Фильм: ${getMovieName(movie)}`);
+
+            tagsContainer.innerHTML = tags.map(tag =>
+                `<span class="filter-tag">${tag}</span>`
+            ).join('');
+        }
+
+        function showQuickView(characterId) {
+            const character = charactersData.find(c => c.id === characterId);
+            const modal = document.getElementById('quick-view-modal');
+            const content = document.getElementById('quick-view-content');
+
+            content.innerHTML = `
+                                    <div class="quick-view">
+                                        <div class="quick-view-image">
+                                            <div class="character-avatar-large">
+                                                <img src="${character.image}" alt="${character.name}" onerror="this.src='fallback-image.jpg'">
+                                            </div>
+                                        </div>
+                                        <div class="quick-view-info">
+                                            <h2>${character.name}</h2>
+                                            <p class="quick-view-movie">🎬 ${character.movie} (${character.year})</p>
+                                            <p class="quick-view-desc">${character.description}</p>
+                                            <div class="quick-view-details">
+                                                <span class="detail-item">👑 ${getCategoryName(character.category)}</span>
+                                                <span class="detail-item">🎭 ${character.voiceActor}</span>
+                                            </div>
+                                            <button class="full-detail-btn" onclick="showCharacterDetails(${character.id}); closeQuickView()">
+                                                📖 Полное описание
+                                            </button>
+                                        </div>
+                                    </div>
+                                `;
+
+            modal.style.display = 'block';
+        }
+
+        function closeQuickView() {
+            document.getElementById('quick-view-modal').style.display = 'none';
+        }
+
+        function showCharacterDetails(characterId) {
+            const character = charactersData.find(c => c.id === characterId);
+            const modal = document.getElementById('detail-modal');
+            const content = document.getElementById('detail-modal-content');
+
+            content.innerHTML = `
+                                    <div class="character-detail">
+                                        <div class="detail-header">
+                                            <div class="detail-image">
+                                                <div class="character-avatar-xlarge">
+                                                    <img src="${character.image}" alt="${character.name}" onerror="this.src='fallback-image.jpg'">
+                                                </div>
+                                            </div>
+                                            <div class="detail-title">
+                                                <h1>${character.name}</h1>
+                                                <p class="detail-subtitle">${character.movie} • ${character.year}</p>
+                                                <div class="detail-badges">
+                                                    <span class="category-badge ${character.category}">${getCategoryIcon(character.category)} ${getCategoryName(character.category)}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="detail-content">
+                                            <div class="detail-section">
+                                                <h3>📖 Описание</h3>
+                                                <p>${character.fullDescription}</p>
+                                            </div>
+
+                                            <div class="detail-grid">
+                                                <div class="detail-item-full">
+                                                    <strong>🎭 Актёр озвучки:</strong>
+                                                    <span>${character.voiceActor}</span>
+                                                </div>
+                                                <div class="detail-item-full">
+                                                    <strong>🎬 Первое появление:</strong>
+                                                    <span>${character.firstAppearance}</span>
+                                                </div>
+                                                <div class="detail-item-full">
+                                                    <strong>🎨 Цветовая палитра:</strong>
+                                                    <span>${character.color}</span>
+                                                </div>
+                                                <div class="detail-item-full">
+                                                    <strong>👥 Друзья:</strong>
+                                                    <span>${character.friends.join(', ')}</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="detail-section">
+                                                <h3>💡 Интересный факт</h3>
+                                                <p>${character.funFact}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+
+            modal.style.display = 'block';
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detail-modal').style.display = 'none';
+        }
+
+        function startFactCarousel() {
+            setInterval(nextFact, 5000);
+        }
+
+        function nextFact() {
+            const facts = document.querySelectorAll('.fact-slide');
+            facts[currentFactIndex].classList.remove('active');
+            currentFactIndex = (currentFactIndex + 1) % facts.length;
+            facts[currentFactIndex].classList.add('active');
+        }
+
+        function prevFact() {
+            const facts = document.querySelectorAll('.fact-slide');
+            facts[currentFactIndex].classList.remove('active');
+            currentFactIndex = (currentFactIndex - 1 + facts.length) % facts.length;
+            facts[currentFactIndex].classList.add('active');
+        }
+
+        function setDayCharacter() {
+            const randomIndex = Math.floor(Math.random() * charactersData.length);
+            dayCharacter = charactersData[randomIndex];
+
+            document.getElementById('day-character-avatar').innerHTML =
+                `<img src="${dayCharacter.image}" alt="${dayCharacter.name}" onerror="this.src='fallback-image.jpg'">`;
+            document.getElementById('day-character-name').textContent = dayCharacter.name;
+            document.getElementById('day-character-desc').textContent = dayCharacter.description;
+        }
+
+        function getCategoryIcon(category) {
+            const icons = {
+                princess: '👑',
+                prince: '🤴',
+                hero: '🦸',
+                villain: '🎭',
+                animal: '🐾',
+                fantasy: '✨'
+            };
+            return icons[category] || '🌟';
+        }
+
+        function getCategoryName(category) {
+            const names = {
+                princess: 'Принцесса',
+                prince: 'Принц',
+                hero: 'Герой',
+                villain: 'Злодей',
+                animal: 'Животное',
+                fantasy: 'Фантастический'
+            };
+            return names[category] || 'Персонаж';
+        }
+
+        function getMovieName(movieKey) {
+            const movies = {
+                frozen: 'Холодное сердце',
+                lionking: 'Король Лев',
+                beauty: 'Красавица и Чудовище',
+                aladdin: 'Аладдин',
+                littlemermaid: 'Русалочка',
+                moana: 'Моана'
+            };
+            return movies[movieKey] || movieKey;
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        window.onclick = function (event) {
+            const quickViewModal = document.getElementById('quick-view-modal');
+            const detailModal = document.getElementById('detail-modal');
+
+            if (event.target === quickViewModal) {
+                closeQuickView();
+            }
+            if (event.target === detailModal) {
+                closeDetailModal();
+            }
+        }
+        
+        function toggleUserDropdown() {
+            const userBox = document.getElementById('user-dropdown-box');
+            const isActive = userBox.classList.contains('active');
+
+            closeAllDropdowns();
+
+            if (!isActive) {
+                userBox.classList.add('active');
+                switchAuthTab('login');
+                setTimeout(() => {
+                    document.getElementById('login-email')?.focus();
+                }, 100);
+            }
+        }
+
+        function closeUserDropdown() {
+            const userBox = document.getElementById('user-dropdown-box');
+            userBox.classList.remove('active');
+        }
+
+        
+        function closeAllDropdowns() {
+            const searchBox = document.getElementById('search-box');
+            const userBox = document.getElementById('user-dropdown-box');
+
+            searchBox.classList.remove('active');
+            userBox.classList.remove('active');
+
+            if (window.innerWidth <= 768) {
+                const headerRight = document.querySelector('.header-right');
+                headerRight.classList.remove('active');
+            }
+        }
+
+        document.addEventListener('click', function (event) {
+            const searchBox = document.getElementById('search-box');
+            const searchToggle = document.querySelector('.search-toggle');
+            const userBox = document.getElementById('user-dropdown-box');
+            const userBtn = document.querySelector('.user-btn');
+            const headerRight = document.querySelector('.header-right');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+
+            if (searchBox.classList.contains('active') &&
+                !searchBox.contains(event.target) &&
+                !searchToggle.contains(event.target)) {
+                searchBox.classList.remove('active');
+            }
+
+            if (userBox.classList.contains('active') &&
+                !userBox.contains(event.target) &&
+                !userBtn.contains(event.target)) {
+                userBox.classList.remove('active');
+            }
+
+            if (window.innerWidth <= 768) {
+                if (headerRight.classList.contains('active') &&
+                    !headerRight.contains(event.target) &&
+                    !mobileToggle.contains(event.target)) {
+                    headerRight.classList.remove('active');
+                }
+            }
+        });
+
+        function switchAuthTab(tabName) {
+            document.querySelectorAll('.auth-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.tab === tabName);
+            });
+
+            document.querySelectorAll('.auth-form').forEach(form => {
+                form.classList.toggle('active', form.dataset.form === tabName);
+            });
+
+            clearFormErrors();
+        }
+
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const toggleBtn = input.nextElementSibling;
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                input.type = 'password';
+                toggleBtn.textContent = '👁️';
+            }
+        }
+
+        function checkPasswordStrength(password) {
+            let strength = 0;
+            const bar = document.querySelector('.strength-bar');
+            const text = document.querySelector('.strength-text');
+
+            if (!password) {
+                bar.style.width = '0';
+                text.textContent = 'Введите пароль';
+                text.style.color = '#666';
+                return;
+            }
+
+            if (password.length >= 8) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+            let strengthText, barColor, barWidth;
+            switch (strength) {
+                case 0:
+                case 1:
+                    strengthText = 'Слабый пароль';
+                    barColor = '#ff6b6b';
+                    barWidth = '25%';
+                    break;
+                case 2:
+                    strengthText = 'Средний пароль';
+                    barColor = '#ffc107';
+                    barWidth = '50%';
+                    break;
+                case 3:
+                    strengthText = 'Хороший пароль';
+                    barColor = '#4ecdc4';
+                    barWidth = '75%';
+                    break;
+                case 4:
+                    strengthText = 'Надёжный пароль';
+                    barColor = '#28a745';
+                    barWidth = '100%';
+                    break;
+            }
+
+            bar.style.width = barWidth;
+            bar.style.backgroundColor = barColor;
+            text.textContent = strengthText;
+            text.style.color = barColor;
+        }
+
+        function checkPasswordMatch() {
+            const password = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
+            const matchDiv = document.getElementById('password-match');
+
+            if (!confirm) {
+                matchDiv.textContent = '';
+                return;
+            }
+
+            if (password === confirm) {
+                matchDiv.textContent = '✅ Пароли совпадают';
+                matchDiv.style.color = '#28a745';
+            } else {
+                matchDiv.textContent = '❌ Пароли не совпадают';
+                matchDiv.style.color = '#ff6b6b';
+            }
+        }
+
+        function clearFormErrors() {
+            document.querySelectorAll('.error-message').forEach(error => error.remove());
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('error');
+            });
+        }
+
+        function showError(inputId, message) {
+            const input = document.getElementById(inputId);
+            const group = input.closest('.form-group');
+
+            const oldError = group.querySelector('.error-message');
+            if (oldError) oldError.remove();
+
+            const error = document.createElement('div');
+            error.className = 'error-message';
+            error.textContent = message;
+            group.appendChild(error);
+            group.classList.add('error');
+        }
+
+        function loginUser(email, password) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const users = JSON.parse(localStorage.getItem('disneyUsers') || '[]');
+                    const user = users.find(u => u.email === email && u.password === password);
+
+                    if (user) {
+                        const sessionData = {
+                            id: user.id,
+                            name: user.name,
+                            email: user.email,
+                            isLoggedIn: true,
+                            loginTime: new Date().toISOString()
+                        };
+
+                        localStorage.setItem('disneyUser', JSON.stringify(sessionData));
+                        resolve(sessionData);
+                    } else {
+                        reject('Неверный email или пароль');
+                    }
+                }, 1000);
+            });
+        }
+
+        
+        function registerUser(userData) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const users = JSON.parse(localStorage.getItem('disneyUsers') || '[]');
+
+                    const existingUser = users.find(u => u.email === userData.email);
+                    if (existingUser) {
+                        reject('Пользователь с таким email уже существует');
+                        return;
+                    }
+
+                    const newUser = {
+                        id: Date.now().toString(),
+                        name: userData.name,
+                        email: userData.email,
+                        password: userData.password,
+                        registrationDate: new Date().toISOString(),
+                        favorites: [],
+                        stories: []
+                    };
+
+                    users.push(newUser);
+                    localStorage.setItem('disneyUsers', JSON.stringify(users));
+
+                    const sessionData = {
+                        id: newUser.id,
+                        name: newUser.name,
+                        email: newUser.email,
+                        isLoggedIn: true,
+                        loginTime: new Date().toISOString()
+                    };
+
+                    localStorage.setItem('disneyUser', JSON.stringify(sessionData));
+                    resolve(sessionData);
+                }, 1500);
+            });
+        }
+
+        
+        function updateUserInterface(userName) {
+            const userBtn = document.querySelector('.user-btn');
+            const userNameSpan = document.querySelector('.user-name');
+
+            userBtn.classList.add('logged-in');
+            userNameSpan.textContent = userName;
+
+            userBtn.onclick = function (e) {
+                e.stopPropagation();
+                showUserMenu();
+            };
+
+            let dropdown = document.querySelector('.user-menu-dropdown');
+            if (!dropdown) {
+                dropdown = document.createElement('div');
+                dropdown.className = 'user-menu-dropdown';
+                dropdown.innerHTML = `
+                <div class="dropdown-content">
+                    <a href="#profile" class="dropdown-item">👤 Мой профиль</a>
+                    <a href="#favorites" class="dropdown-item">⭐ Избранное</a>
+                    <a href="#stories" class="dropdown-item">📖 Мои истории</a>
+                    <a href="#settings" class="dropdown-item">⚙️ Настройки</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#logout" class="dropdown-item logout" onclick="logoutUser()">🚪 Выйти</a>
+                </div>
+            `;
+                document.querySelector('.user-menu').appendChild(dropdown);
+            }
+
+            closeUserDropdown();
+        }
+
+        function showUserMenu() {
+            const dropdown = document.querySelector('.user-menu-dropdown');
+            if (dropdown) {
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+
+        function logoutUser() {
+            localStorage.removeItem('disneyUser');
+
+            const userBtn = document.querySelector('.user-btn');
+            const userNameSpan = document.querySelector('.user-name');
+
+            userBtn.classList.remove('logged-in');
+            userNameSpan.textContent = 'Гость';
+
+            userBtn.onclick = toggleUserDropdown;
+
+            const dropdown = document.querySelector('.user-menu-dropdown');
+            if (dropdown) dropdown.remove();
+
+            showNotification('Вы успешно вышли из аккаунта 👋', 'info');
+        }
+
+        function socialAuth(provider) {
+            showNotification(`Авторизация через ${provider === 'google' ? 'Google' : 'ВКонтакте'}...`, 'info');
+
+            setTimeout(() => {
+                const userData = {
+                    id: Date.now().toString(),
+                    name: provider === 'google' ? 'Google Пользователь' : 'Пользователь ВК',
+                    email: `user@${provider}.com`,
+                    isLoggedIn: true,
+                    socialProvider: provider,
+                    loginTime: new Date().toISOString()
+                };
+
+                localStorage.setItem('disneyUser', JSON.stringify(userData));
+                updateUserInterface(userData.name);
+                closeUserDropdown();
+
+                showNotification(`Вход через ${provider === 'google' ? 'Google' : 'ВКонтакте'} успешен! 🎉`, 'success');
+            }, 2000);
+        }
+
+        function showNotification(message, type = 'info') {
+            const oldNotification = document.querySelector('.notification');
+            if (oldNotification) oldNotification.remove();
+
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+            <div class="notification-content">
+                <span class="notification-icon">${type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️'}</span>
+                <span class="notification-text">${message}</span>
+                <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+            </div>
+        `;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => notification.classList.add('show'), 10);
+
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.classList.remove('show');
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 5000);
+        }
+
+        function checkAuthStatus() {
+            const userData = localStorage.getItem('disneyUser');
+            if (userData) {
+                try {
+                    const user = JSON.parse(userData);
+                    if (user.isLoggedIn) {
+                        updateUserInterface(user.name);
+                    }
+                } catch (e) {
+                    console.error('Ошибка при чтении данных пользователя:', e);
+                }
+            }
+        }
+
+        function initAuthForms() {
+            document.querySelectorAll('.auth-tab').forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    switchAuthTab(tab.dataset.tab);
+                });
+            });
+
+            const passwordInput = document.getElementById('register-password');
+            if (passwordInput) {
+                passwordInput.addEventListener('input', function () {
+                    checkPasswordStrength(this.value);
+                    checkPasswordMatch();
+                });
+            }
+
+            const confirmInput = document.getElementById('register-confirm');
+            if (confirmInput) {
+                confirmInput.addEventListener('input', checkPasswordMatch);
+            }
+
+            const loginForm = document.getElementById('login-form');
+            if (loginForm) {
+                loginForm.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    const email = document.getElementById('login-email').value.trim();
+                    const password = document.getElementById('login-password').value;
+                    const rememberMe = document.getElementById('remember-me').checked;
+
+                    clearFormErrors();
+                    let hasErrors = false;
+
+                    if (!email) {
+                        showError('login-email', 'Введите email');
+                        hasErrors = true;
+                    } else if (!/\S+@\S+\.\S+/.test(email)) {
+                        showError('login-email', 'Введите корректный email');
+                        hasErrors = true;
+                    }
+
+                    if (!password) {
+                        showError('login-password', 'Введите пароль');
+                        hasErrors = true;
+                    }
+
+                    if (hasErrors) return;
+
+                    const submitBtn = this.querySelector('.auth-btn');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Вход...';
+                    submitBtn.disabled = true;
+
+                    try {
+                        const userData = await loginUser(email, password);
+
+                        updateUserInterface(userData.name);
+
+                        showNotification(`Добро пожаловать, ${userData.name}! ✨`, 'success');
+
+                        if (rememberMe) {
+                            localStorage.setItem('rememberMe', 'true');
+                        }
+
+                    } catch (error) {
+                        showNotification(error, 'error');
+                        showError('login-email', ' ');
+                        showError('login-password', 'Неверный email или пароль');
+                    } finally {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+
+            const registerForm = document.getElementById('register-form');
+            if (registerForm) {
+                registerForm.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    const name = document.getElementById('register-name').value.trim();
+                    const email = document.getElementById('register-email').value.trim();
+                    const password = document.getElementById('register-password').value;
+                    const confirm = document.getElementById('register-confirm').value;
+                    const acceptTerms = document.getElementById('accept-terms').checked;
+
+                    clearFormErrors();
+                    let hasErrors = false;
+
+                    if (!name || name.length < 2) {
+                        showError('register-name', 'Имя должно содержать минимум 2 символа');
+                        hasErrors = true;
+                    }
+
+                    if (!email) {
+                        showError('register-email', 'Введите email');
+                        hasErrors = true;
+                    } else if (!/\S+@\S+\.\S+/.test(email)) {
+                        showError('register-email', 'Введите корректный email');
+                        hasErrors = true;
+                    }
+
+                    if (!password || password.length < 6) {
+                        showError('register-password', 'Пароль должен содержать минимум 6 символов');
+                        hasErrors = true;
+                    }
+
+                    if (password !== confirm) {
+                        showError('register-confirm', 'Пароли не совпадают');
+                        hasErrors = true;
+                    }
+
+                    if (!acceptTerms) {
+                        showNotification('Необходимо принять условия использования', 'error');
+                        hasErrors = true;
+                    }
+
+                    if (hasErrors) return;
+
+                    const submitBtn = this.querySelector('.auth-btn');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Регистрация...';
+                    submitBtn.disabled = true;
+
+                    try {
+                        const userData = {
+                            name: name,
+                            email: email,
+                            password: password
+                        };
+
+                        const sessionData = await registerUser(userData);
+
+                        updateUserInterface(sessionData.name);
+
+                        showNotification(`Регистрация успешна! Добро пожаловать, ${sessionData.name}! 🎉`, 'success');
+
+                    } catch (error) {
+                        showNotification(error, 'error');
+                        if (error.includes('уже существует')) {
+                            showError('register-email', 'Этот email уже зарегистрирован');
+                        }
+                    } finally {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    closeAllDropdowns();
+                }
+            });
+        }
+
+        const userMenuStyles = `
+.user-menu-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 10px;
+        min-width: 200px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        z-index: 10002;
+        animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-content {
+        padding: 10px 0;
+}
+
+.dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        text-decoration: none;
+        color: #333;
+        transition: all 0.3s ease;
+        font-size: 0.95em;
+}
+
+.dropdown-item:hover {
+        background: #f8f9fa;
+        color: #667eea;
+}
+
+.dropdown-item.logout {
+        color: #ff6b6b;
+}
+
+.dropdown-divider {
+        height: 1px;
+        background: #eee;
+        margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+        .user-menu-dropdown {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            left: 20px;
+            margin-top: 0;
+        }
+}
+`;
+
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = userMenuStyles;
+        document.head.appendChild(styleSheet);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            initAuthForms();
+            checkAuthStatus();
+
+            document.addEventListener('click', function (e) {
+                const userMenu = document.querySelector('.user-menu-dropdown');
+                const userBtn = document.querySelector('.user-btn');
+
+                if (userMenu && userMenu.style.display === 'block' &&
+                    !userMenu.contains(e.target) &&
+                    !userBtn.contains(e.target)) {
+                    userMenu.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <style>
+
+        .character-avatar {
+            width: 160px;
+            height: 160px;
+            overflow: hidden;
+            border-radius: 10%;
+            background: none;
+        }
+
+            .character-avatar img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; 
+            }
+
+        .character-avatar-large img,
+        .character-avatar-xlarge img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+
+
+        .character-avatar-large {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .character-avatar-xlarge {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        
+        .user-menu {
+            position: relative;
+        }
+
+        .user-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-weight: 500;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1em;
+        }
+
+            .user-btn:hover {
+                background: rgba(255,255,255,0.2);
+                transform: translateY(-2px);
+            }
+
+        .user-dropdown-box {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 320px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 10001;
+            margin-top: 10px;
+        }
+
+            .user-dropdown-box.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            
+            .user-dropdown-box::before {
+                content: '';
+                position: absolute;
+                top: -8px;
+                right: 20px;
+                width: 16px;
+                height: 16px;
+                background: white;
+                transform: rotate(45deg);
+                border-radius: 3px;
+                border-left: 1px solid rgba(0,0,0,0.1);
+                border-top: 1px solid rgba(0,0,0,0.1);
+            }
+
+        .auth-container {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+            .auth-container::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            .auth-container::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
+
+            .auth-container::-webkit-scrollbar-thumb {
+                background: #c1c1c1;
+                border-radius: 10px;
+            }
+
+                .auth-container::-webkit-scrollbar-thumb:hover {
+                    background: #a1a1a1;
+                }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 10px;
+            background: none;
+            border: none;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #666;
+            position: relative;
+            border-radius: 5px 5px 0 0;
+            font-weight: 500;
+        }
+
+            .auth-tab:hover {
+                background: #f8f9fa;
+                color: #333;
+            }
+
+            .auth-tab.active {
+                color: #667eea;
+                font-weight: 600;
+            }
+
+                .auth-tab.active::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -2px;
+                    left: 0;
+                    right: 0;
+                    height: 3px;
+                    background: #667eea;
+                    border-radius: 3px 3px 0 0;
+                }
+
+        .auth-form {
+            display: none;
+        }
+
+            .auth-form.active {
+                display: block;
+                animation: fadeIn 0.3s ease;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group input {
+                width: 100%;
+                padding: 12px 15px;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                font-size: 0.95em;
+                transition: all 0.3s ease;
+                box-sizing: border-box;
+                background: #fff;
+            }
+
+                .form-group input:focus {
+                    border-color: #8b00ff;
+                    outline: none;
+                    box-shadow: 0 0 0 3px rgba(139, 0, 255, 0.1);
+                }
+
+        .password-input {
+            position: relative;
+            display: flex;
+        }
+
+            .password-input input {
+                padding-right: 45px;
+            }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            padding: 5px;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+            .toggle-password:hover {
+                color: #333;
+            }
+
+        .password-strength {
+            margin-top: 8px;
+            font-size: 0.8em;
+        }
+
+        .strength-bar {
+            height: 4px;
+            background: #eee;
+            border-radius: 2px;
+            margin-bottom: 4px;
+            transition: all 0.3s ease;
+            width: 0;
+        }
+
+        .strength-text {
+            color: #666;
+            font-size: 0.85em;
+        }
+
+        .password-match {
+            font-size: 0.85em;
+            margin-top: 5px;
+            min-height: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 0.85em;
+        }
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            user-select: none;
+            color: #666;
+        }
+
+            .checkbox input[type="checkbox"] {
+                width: 16px;
+                height: 16px;
+                margin: 0;
+                cursor: pointer;
+            }
+
+        .forgot-password {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.85em;
+        }
+
+            .forgot-password:hover {
+                text-decoration: underline;
+            }
+
+        .auth-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+
+            .auth-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            }
+
+            .auth-btn:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+                transform: none;
+                box-shadow: none;
+            }
+
+
+        .form-group.error input {
+            border-color: #ff6b6b;
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.8em;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transform: translateX(150%);
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            max-width: 350px;
+            overflow: hidden;
+        }
+
+            .notification.show {
+                transform: translateX(0);
+            }
+
+            .notification.success {
+                border-left: 4px solid #28a745;
+            }
+
+            .notification.error {
+                border-left: 4px solid #ff6b6b;
+            }
+
+            .notification.info {
+                border-left: 4px solid #667eea;
+            }
+
+        .notification-content {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .notification-icon {
+            font-size: 1.5em;
+        }
+
+        .notification-text {
+            flex: 1;
+            color: #333;
+            font-size: 0.95em;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #666;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease;
+        }
+
+            .notification-close:hover {
+                color: #333;
+            }
+
+        .user-btn.logged-in {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+            .user-btn.logged-in .user-name {
+                font-weight: 600;
+            }
+
+        @media (max-width: 768px) {
+            .user-dropdown-box {
+                position: fixed;
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%) translateY(-10px);
+                width: 90%;
+                max-width: 350px;
+                margin-top: 0;
+                z-index: 10002;
+            }
+
+                .user-dropdown-box.active {
+                    transform: translateX(-50%) translateY(0);
+                }
+
+                .user-dropdown-box::before {
+                    display: none;
+                }
+
+            .auth-container {
+                max-height: 60vh;
+            }
+
+            .social-auth {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .user-dropdown-box {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .user-btn {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+
+            .user-name {
+                font-size: 0.9em;
+            }
+
+            .auth-tab {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+
+            .form-group input {
+                padding: 10px 12px;
+                font-size: 0.9em;
+            }
+
+            .notification {
+                left: 20px;
+                right: 20px;
+                max-width: none;
+                transform: translateY(-150%);
+            }
+
+                .notification.show {
+                    transform: translateY(0);
+                }
+        }
+        
+        .site-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+            gap: 30px;
+        }
+
+        
+        .header-left {
+            flex-shrink: 0;
+        }
+
+        .logo-link {
+            display: block;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+            .logo-link:hover {
+                transform: scale(1.05);
+            }
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        
+        .header-center {
+            flex: 1;
+            text-align: center;
+        }
+
+        .main-title-white {
+            font-family: "Playpen Sans", cursive;
+            font-size: 2.4em;
+            font-weight: 700;
+            margin: 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.1;
+        }
+
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-shrink: 0;
+        }
+
+       
+        .header-nav {
+            display: flex;
+            gap: 5px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+            .nav-link::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                transition: left 0.5s ease;
+            }
+
+            .nav-link:hover::before {
+                left: 100%;
+            }
+
+            .nav-link:hover {
+                background: rgba(255,255,255,0.15);
+                transform: translateY(-2px);
+            }
+
+            .nav-link.active {
+                background: linear-gradient(135deg, #ff6b6b, #8b00ff);
+                box-shadow: 0 5px 15px rgba(139,0,255,0.4);
+            }
+
+        .nav-text {
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        
+        .header-search {
+            position: relative;
+        }
+
+        .search-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 1.2em;
+            position: relative;
+            z-index: 10000;
+        }
+
+            .search-toggle:hover {
+                background: rgba(255,255,255,0.2);
+                transform: scale(1.1);
+                box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+            }
+
+        .search-box {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 10001;
+            margin-top: 10px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+            .search-box.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .search-box::before {
+                content: '';
+                position: absolute;
+                top: -8px;
+                right: 20px;
+                width: 16px;
+                height: 16px;
+                background: white;
+                transform: rotate(45deg);
+                border-radius: 3px;
+                border-left: 1px solid rgba(0,0,0,0.1);
+                border-top: 1px solid rgba(0,0,0,0.1);
+            }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+            background: #fff;
+        }
+
+            .search-input:focus {
+                border-color: #8b00ff;
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(139, 0, 255, 0.1);
+            }
+
+        .search-suggestions {
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            position: relative;
+            z-index: 10002;
+        }
+
+        .search-suggestion {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border-bottom: 1px solid #e9ecef;
+            background: #fff;
+        }
+
+            .search-suggestion:last-child {
+                border-bottom: none;
+            }
+
+            .search-suggestion:hover {
+                background-color: #e9ecef;
+            }
+
+        .suggestion-icon {
+            font-size: 1.2em;
+            width: 20px;
+            text-align: center;
+        }
+
+        .suggestion-text {
+            flex: 1;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .suggestion-type {
+            font-size: 0.8em;
+            color: #666;
+            background: #dee2e6;
+            padding: 4px 8px;
+            border-radius: 10px;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #666;
+            padding: 20px;
+            font-style: italic;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        
+        .user-menu {
+            position: relative;
+        }
+
+        .user-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-weight: 500;
+        }
+
+            .user-btn:hover {
+                background: rgba(255,255,255,0.2);
+                transform: translateY(-2px);
+            }
+
+        .user-name {
+            font-size: 1em;
+        }
+
+        .header-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .bg-1 {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .bg-2 {
+            width: 120px;
+            height: 120px;
+            bottom: 10%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .bg-3 {
+            width: 60px;
+            height: 60px;
+            top: 50%;
+            right: 25%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-20px) rotate(120deg);
+            }
+
+            66% {
+                transform: translateY(10px) rotate(240deg);
+            }
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .search-box.active {
+            animation: slideDown 0.3s ease;
+        }
+
+        .site-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 0;
+            position: relative;
+            overflow: visible; 
+            z-index: 9999; 
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 10000; 
+            gap: 30px;
+        }
+
+       
+        @media (max-width: 1200px) {
+            .header-container {
+                gap: 20px;
+            }
+
+            .main-title-white {
+                font-size: 2em;
+            }
+
+            .logo-image {
+                height: 50px;
+            }
+
+            .nav-link {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .header-right {
+                gap: 20px;
+            }
+
+            .header-nav {
+                gap: 3px;
+            }
+
+            .main-title-white {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .main-title-white {
+                display: none;
+            }
+
+            .header-center {
+                display: none;
+            }
+
+            .header-container {
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 10px 0;
+            }
+
+            .header-container {
+                padding: 0 15px;
+                gap: 15px;
+            }
+
+            .logo-image {
+                height: 45px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .header-right {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                border-radius: 0 0 20px 20px;
+            }
+
+                .header-right.active {
+                    display: flex;
+                }
+
+            .header-nav {
+                flex-direction: column;
+                width: 100%;
+                background: transparent;
+                border: none;
+                padding: 0;
+            }
+
+            .nav-link {
+                justify-content: center;
+                border-radius: 15px;
+                padding: 15px;
+            }
+
+            .header-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .search-toggle, .user-btn {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .search-box {
+                position: fixed;
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%) translateY(-10px);
+                width: 90%;
+                max-width: 400px;
+                margin-top: 0;
+            }
+
+                .search-box.active {
+                    transform: translateX(-50%) translateY(0);
+                }
+
+                .search-box::before {
+                    display: none;
+                }
+        }
+
+        @media (max-width: 480px) {
+            .logo-image {
+                height: 40px;
+            }
+
+            .header-container {
+                padding: 0 10px;
+            }
+
+            .header-right {
+                padding: 15px;
+            }
+
+            .search-box {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .search-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1em;
+            }
+
+            .user-name {
+                display: none;
+            }
+
+            .user-btn {
+                padding: 8px 12px;
+            }
+        }
+        
+        .gallery-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+            .gallery-header h1 {
+                font-size: 3em;
+                margin-bottom: 20px;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            }
+
+            .gallery-header p {
+                font-size: 1.3em;
+                opacity: 0.9;
+                max-width: 600px;
+                margin: 0 auto;
+                line-height: 1.6;
+            }
+
+        .gallery-controls {
+            background: white;
+            padding: 40px 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+            .search-input:focus {
+                border-color: #8b00ff;
+                box-shadow: 0 0 20px rgba(139,0,255,0.2);
+            }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+            z-index: 1000;
+        }
+
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+
+            .search-result-item:hover {
+                background: #f5f5f5;
+            }
+
+        .filter-controls {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: end;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+            .filter-group label {
+                font-weight: bold;
+                color: #333;
+            }
+
+        .filter-select {
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+            .filter-select:focus {
+                border-color: #8b00ff;
+            }
+
+        .reset-filters {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .reset-filters:hover {
+                background: #e55c5c;
+                transform: translateY(-2px);
+            }
+
+        .filter-stats {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .filter-tags {
+            margin-left: 20px;
+        }
+
+        .filter-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            margin-left: 8px;
+        }
+
+        .characters-gallery {
+            padding: 40px 20px;
+            background: #f8f9fa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .character-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+            .character-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            }
+
+        .character-image {
+            position: relative;
+            padding: 10px;
+            text-align: center;
+            margin: 0px;
+        }
+
+        .character-avatar {
+            font-size: 4em;
+        }
+
+        .character-badges {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .category-badge {
+            background: rgba(255,255,255,0.9);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+            .category-badge.princess {
+                color: #e83e8c;
+            }
+
+            .category-badge.hero {
+                color: #28a745;
+            }
+
+            .category-badge.villain {
+                color: #dc3545;
+            }
+
+            .category-badge.animal {
+                color: #fd7e14;
+            }
+
+            .category-badge.prince {
+                color: #007bff;
+            }
+
+        .year-badge {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.7em;
+        }
+
+        .character-info {
+            padding: 10px;
+        }
+
+        .character-name {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .character-movie {
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .character-desc {
+            color: #777;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .character-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .quick-view-btn, .detail-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .quick-view-btn {
+            background: #6c757d;
+            color: white;
+        }
+
+        .detail-btn {
+            background: #007bff;
+            color: white;
+        }
+
+        .quick-view-btn:hover {
+            background: #5a6268;
+        }
+
+        .detail-btn:hover {
+            background: #0056b3;
+        }
+
+        .loading-indicator {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .load-more-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .load-more-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 25px rgba(102,126,234,0.4);
+            }
+
+       
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .quick-view-modal .modal-content {
+            max-width: 600px;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 2em;
+            cursor: pointer;
+            z-index: 1001;
+            color: #666;
+        }
+
+            .close-btn:hover {
+                color: #333;
+            }
+
+        .quick-view {
+            display: flex;
+            padding: 40px;
+        }
+
+        .quick-view-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .character-avatar-large {
+            font-size: 6em;
+        }
+
+        .quick-view-info {
+            flex: 2;
+            padding-left: 30px;
+        }
+
+            .quick-view-info h2 {
+                margin-bottom: 10px;
+                color: #333;
+            }
+
+        .quick-view-movie {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .quick-view-desc {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .quick-view-details {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .detail-item {
+            background: #f8f9fa;
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        .full-detail-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+            .full-detail-btn:hover {
+                background: #0056b3;
+            }
+
+        
+        .character-detail {
+            padding: 40px;
+        }
+
+        .detail-header {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .detail-image {
+            flex-shrink: 0;
+        }
+
+        .character-avatar-xlarge {
+            font-size: 8em;
+        }
+
+        .detail-title h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .detail-subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .detail-badges {
+            display: flex;
+            gap: 10px;
+        }
+
+        .detail-content {
+            line-height: 1.6;
+        }
+
+        .detail-section {
+            margin-bottom: 30px;
+        }
+
+            .detail-section h3 {
+                color: #333;
+                margin-bottom: 15px;
+                font-size: 1.3em;
+            }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .detail-item-full {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+            .detail-item-full strong {
+                display: block;
+                margin-bottom: 5px;
+                color: #333;
+            }
+
+        
+        .fun-facts {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #ff6b6b, #8b00ff);
+            color: white;
+        }
+
+            .fun-facts h2 {
+                text-align: center;
+                margin-bottom: 40px;
+                font-size: 2.2em;
+            }
+
+        .facts-carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .fact-slide {
+            padding: 40px;
+            display: none;
+            text-align: center;
+        }
+
+            .fact-slide.active {
+                display: block;
+            }
+
+            .fact-slide h3 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+
+            .fact-slide p {
+                font-size: 1.2em;
+                line-height: 1.6;
+                opacity: 0.9;
+            }
+
+        .fact-prev, .fact-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background 0.3s ease;
+        }
+
+            .fact-prev:hover, .fact-next:hover {
+                background: rgba(255,255,255,0.3);
+            }
+
+        .fact-prev {
+            left: 20px;
+        }
+
+        .fact-next {
+            right: 20px;
+        }
+
+        .character-of-day {
+            padding: 60px 0px;
+            background: white;
+        }
+
+        .character-day-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: white;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .day-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ffd700;
+            color: #333;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .day-character-content {
+            display: flex;
+            padding: 40px;
+            top: 20px;
+        }
+
+        .day-character-image {
+            width: 300px;
+            height: 300px;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+            .day-character-image .character-avatar {
+                font-size: 8em;
+                filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            }
+
+        .day-character-info {
+            flex: 2;
+            padding-left: 40px;
+        }
+
+            .day-character-info h3 {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            }
+
+            .day-character-info p {
+                font-size: 1.3em;
+                margin-bottom: 25px;
+                line-height: 1.6;
+                opacity: 0.9;
+            }
+
+        .day-character-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+            .day-character-stats span {
+                background: rgba(255,255,255,0.2);
+                padding: 8px 15px;
+                border-radius: 15px;
+                backdrop-filter: blur(10px);
+            }
+
+        .day-character-btn {
+            background: rgba(255,255,255,0.9);
+            color: #4ecdc4;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .day-character-btn:hover {
+                background: white;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+
+        
+        @media (max-width: 768px) {
+            .gallery-header h1 {
+                font-size: 2.2em;
+            }
+
+            .filter-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-group {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-view {
+                flex-direction: column;
+            }
+
+            .quick-view-info {
+                padding-left: 0;
+                padding-top: 20px;
+            }
+
+            .detail-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .day-character-content {
+                flex-direction: column;
+            }
+
+            .day-character-info {
+                padding-left: 0;
+                padding-top: 30px;
+            }
+
+            .characters-gallery {
+                padding: 0;
+            }
+
+            .layout-1 {
+                margin: 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .character-actions {
+                flex-direction: column;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+            }
+
+            .character-detail {
+                padding: 20px;
+            }
+        }
+    </style>
+</body>
+</html>
